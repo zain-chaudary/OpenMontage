@@ -1,0 +1,313 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-10-07T14:23:19.418202+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "cuts": [
+        {
+          "id": "cut-01",
+          "source": "img-07-review-room.jpg",
+          "in_seconds": 0.0,
+          "out_seconds": 4.828,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "none",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Cold open: prompt chip types, then hard cut to the review-room plate."
+        },
+        {
+          "id": "cut-02",
+          "source": "assets/images/frames/02-inversion.jpg",
+          "in_seconds": 5.178,
+          "out_seconds": 12.625,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Counter-weighted editorial frame with the 70/30 pre-production split bar."
+        },
+        {
+          "id": "cut-03",
+          "source": "assets/images/frames/03-research.jpg",
+          "in_seconds": 12.925,
+          "out_seconds": 21.435,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Research fan-out diagram drawing into the 8-source counter."
+        },
+        {
+          "id": "cut-04",
+          "source": "assets/images/frames/04-script-sceneplan.jpg",
+          "in_seconds": 21.735,
+          "out_seconds": 27.515,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Screenplay page resolving into the word-budget bar and the scene plan."
+        },
+        {
+          "id": "cut-05",
+          "source": "assets/images/frames/05-assets.jpg",
+          "in_seconds": 27.814,
+          "out_seconds": 36.95,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Asset routing columns with the decision-log rail filling alongside."
+        },
+        {
+          "id": "cut-06",
+          "source": "assets/images/frames/06-edit-render.jpg",
+          "in_seconds": 37.25,
+          "out_seconds": 46.427,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Edit timeline scrubbing into the render bar landing on final.mp4."
+        },
+        {
+          "id": "cut-07",
+          "source": "assets/images/frames/07-review-gate.jpg",
+          "in_seconds": 46.778,
+          "out_seconds": 54.636,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Self-review checklist under a PASS stamp, with the ghosted regenerate row."
+        },
+        {
+          "id": "cut-08",
+          "source": "img-08-closing.jpg",
+          "in_seconds": 55.086,
+          "out_seconds": 62.04,
+          "layer": "primary",
+          "speed": 1.0,
+          "transition_in": "fade",
+          "transition_out": "fade",
+          "transition_duration": 0.5,
+          "backgroundColor": "#F9FAFB",
+          "reason": "Closing thesis over the end-of-day plate, resolving into the wordmark."
+        }
+      ],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "narration-s1",
+              "start_seconds": 0.0,
+              "end_seconds": 4.828
+            },
+            {
+              "asset_id": "narration-s2",
+              "start_seconds": 5.178,
+              "end_seconds": 12.625
+            },
+            {
+              "asset_id": "narration-s3",
+              "start_seconds": 12.925,
+              "end_seconds": 21.435
+            },
+            {
+              "asset_id": "narration-s4",
+              "start_seconds": 21.735,
+              "end_seconds": 27.515
+            },
+            {
+              "asset_id": "narration-s5",
+              "start_seconds": 27.814,
+              "end_seconds": 36.95
+            },
+            {
+              "asset_id": "narration-s6",
+              "start_seconds": 37.25,
+              "end_seconds": 46.427
+            },
+            {
+              "asset_id": "narration-s7",
+              "start_seconds": 46.778,
+              "end_seconds": 54.636
+            },
+            {
+              "asset_id": "narration-s8",
+              "start_seconds": 55.086,
+              "end_seconds": 62.0
+            }
+          ],
+          "src": "assets/audio/narration.mp3"
+        },
+        "music": {
+          "asset_id": "music-bed",
+          "volume": 0.07,
+          "fade_in_seconds": 1.0,
+          "fade_out_seconds": 1.6,
+          "src": "assets/music/music-bed.mp3",
+          "ducking": {
+            "enabled": true,
+            "threshold_db": -3,
+            "reduction_db": -10,
+            "attack_ms": 15,
+            "release_ms": 380
+          }
+        }
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "sentence",
+        "source": "rendered in-frame by the bespoke atelier compositor (composition/renderer.py)",
+        "font": "Inter",
+        "font_size": 34,
+        "color": "#111827",
+        "outline_color": "#FFFFFF"
+      },
+      "music": {
+        "asset_id": "music-bed",
+        "volume": 0.07
+      },
+      "transitions": [
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 4.828,
+          "duration_seconds": 0.5
+        },
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 12.625,
+          "duration_seconds": 0.5
+        },
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 21.435,
+          "duration_seconds": 0.5
+        },
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 27.515,
+          "duration_seconds": 0.5
+        },
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 36.95,
+          "duration_seconds": 0.5
+        },
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 46.427,
+          "duration_seconds": 0.5
+        },
+        {
+          "type": "cross-dissolve",
+          "at_seconds": 54.636,
+          "duration_seconds": 0.5
+        }
+      ],
+      "renderer_family": "animation-first",
+      "render_runtime": "ffmpeg",
+      "composition_mode": "atelier",
+      "slideshow_risk_score": {
+        "average": 0.18,
+        "verdict": "strong"
+      },
+      "metadata": {
+        "proposal_render_runtime": "ffmpeg",
+        "runtime_swap_detected": false,
+        "kit": "frame-accurate Pillow compositor (composition/renderer.py) piped to FFmpeg rawvideo",
+        "scene_schedule": [
+          {
+            "scene_id": "scene-01",
+            "start": 0.0,
+            "end": 4.828
+          },
+          {
+            "scene_id": "scene-02",
+            "start": 5.178,
+            "end": 12.625
+          },
+          {
+            "scene_id": "scene-03",
+            "start": 12.925,
+            "end": 21.435
+          },
+          {
+            "scene_id": "scene-04",
+            "start": 21.735,
+            "end": 27.515
+          },
+          {
+            "scene_id": "scene-05",
+            "start": 27.814,
+            "end": 36.95
+          },
+          {
+            "scene_id": "scene-06",
+            "start": 37.25,
+            "end": 46.427
+          },
+          {
+            "scene_id": "scene-07",
+            "start": 46.778,
+            "end": 54.636
+          },
+          {
+            "scene_id": "scene-08",
+            "start": 55.086,
+            "end": 62.04
+          }
+        ],
+        "captions": {
+          "groups": 22,
+          "file": "composition/captions.json",
+          "timing": "word-level, character-weighted across measured section durations"
+        },
+        "motion_devices": [
+          "typewriter reveal",
+          "wiping hairline",
+          "progressive line draw",
+          "counting numerals",
+          "growing bars",
+          "playhead scrub",
+          "stamp press",
+          "plate push-in",
+          "cross-dissolve"
+        ]
+      }
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "8 cuts covering 0-62s with no gaps or overlaps; word-timed captions; score ducked -10dB under narration.",
+    "checklist": {
+      "cuts_reference_valid_assets": true,
+      "subtitles_enabled": true,
+      "music_ducking_configured": true,
+      "no_timeline_gaps": true
+    }
+  }
+}

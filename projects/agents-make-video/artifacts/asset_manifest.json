@@ -1,0 +1,473 @@
+{
+  "version": "1.0",
+  "assets": [
+    {
+      "id": "narration-s1",
+      "type": "narration",
+      "path": "assets/audio/narration-s1.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-01",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 4.828,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s1",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "measured",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-01",
+      "type": "image",
+      "path": "assets/images/img-07-review-room.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-01",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Editorial still: calm review room with a screen of blank frames, no readable text.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-01",
+      "type": "animation",
+      "path": "assets/images/frames/01-cold-open.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-01",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s2",
+      "type": "narration",
+      "path": "assets/audio/narration-s2.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-02",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 7.446,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s2",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "conversational",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-02",
+      "type": "image",
+      "path": "assets/images/img-02-cards.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-02",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Top-down grid of blank index cards with one cobalt accent card.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-02",
+      "type": "animation",
+      "path": "assets/images/frames/02-inversion.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-02",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s3",
+      "type": "narration",
+      "path": "assets/audio/narration-s3.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-03",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 8.51,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s3",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "brisk",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-03",
+      "type": "image",
+      "path": "assets/images/img-03-research.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-03",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Research materials flat-lay: blank sheets, unreadable newsprint, plain notebook.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-03",
+      "type": "animation",
+      "path": "assets/images/frames/03-research.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-03",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s4",
+      "type": "narration",
+      "path": "assets/audio/narration-s4.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-04",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 5.78,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s4",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "conversational",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-04",
+      "type": "image",
+      "path": "assets/images/img-04-script.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-04",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Blank screenplay page with pencil, shallow depth of field.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-04",
+      "type": "animation",
+      "path": "assets/images/frames/04-script-sceneplan.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-04",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s5",
+      "type": "narration",
+      "path": "assets/audio/narration-s5.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-05",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 9.135,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s5",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "conversational",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-05",
+      "type": "image",
+      "path": "assets/images/img-05-tools.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-05",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Film slate, headphones, lens and colour chips flat-lay.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-05",
+      "type": "animation",
+      "path": "assets/images/frames/05-assets.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-05",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s6",
+      "type": "narration",
+      "path": "assets/audio/narration-s6.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-06",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 9.178,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s6",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "brisk",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-06",
+      "type": "image",
+      "path": "assets/images/img-06-edit-suite.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-06",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Minimal edit suite with abstract timeline bars on screen.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-06",
+      "type": "animation",
+      "path": "assets/images/frames/06-edit-render.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-06",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s7",
+      "type": "narration",
+      "path": "assets/audio/narration-s7.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-07",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 7.858,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s7",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "measured",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-07",
+      "type": "image",
+      "path": "assets/images/img-01-studio.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-07",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Empty daylight studio with cyclorama and a single chair.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-07",
+      "type": "animation",
+      "path": "assets/images/frames/07-review-gate.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-07",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "narration-s8",
+      "type": "narration",
+      "path": "assets/audio/narration-s8.mp3",
+      "source_tool": "platform_tts",
+      "scene_id": "scene-08",
+      "provider": "platform TTS",
+      "subtype": "voiceover",
+      "format": "mp3",
+      "duration_seconds": 6.914,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "voice_performance": {
+        "source_section_id": "s8",
+        "delivery_cues_applied": true,
+        "provider_text_used": false,
+        "provider_settings": {
+          "pace": "slow",
+          "atempo_applied": 1.053484
+        },
+        "sample_approved": true,
+        "review_notes": "Trimmed of leading/trailing silence, tempo-matched to the 62s delivery promise."
+      }
+    },
+    {
+      "id": "plate-08",
+      "type": "image",
+      "path": "assets/images/img-08-closing.jpg",
+      "source_tool": "platform_image_generation",
+      "scene_id": "scene-08",
+      "model": "platform image model",
+      "provider": "platform image model",
+      "prompt": "Empty film set at end of day, warm raking light.",
+      "resolution": "1376x768",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.92,
+      "license": "generated"
+    },
+    {
+      "id": "frame-08",
+      "type": "animation",
+      "path": "assets/images/frames/08-landing.jpg",
+      "source_tool": "bespoke_atelier_compositor",
+      "scene_id": "scene-08",
+      "provider": "local",
+      "resolution": "1920x1080",
+      "format": "jpg",
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Frame-accurate procedural composite authored for the premium-minimalist playbook."
+    },
+    {
+      "id": "music-bed",
+      "type": "music",
+      "path": "assets/music/music-bed.mp3",
+      "source_tool": "ffmpeg_synthesis",
+      "scene_id": "all",
+      "provider": "ffmpeg",
+      "subtype": "score",
+      "format": "mp3",
+      "duration_seconds": 62.04,
+      "cost_usd": 0.0,
+      "quality_score": 0.8,
+      "license": "generated locally",
+      "generation_summary": "A-minor sine pad, slow tremolo movement, low-pass 1.5kHz, ducked under narration."
+    },
+    {
+      "id": "master-audio",
+      "type": "audio",
+      "path": "assets/audio/master.mp3",
+      "source_tool": "audio_mixer",
+      "scene_id": "all",
+      "provider": "ffmpeg",
+      "format": "mp3",
+      "duration_seconds": 62.04,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "Narration timeline + ducked score, loudness-normalised to -16 LUFS."
+    },
+    {
+      "id": "final-render",
+      "type": "video",
+      "path": "renders/final.mp4",
+      "source_tool": "video_compose",
+      "scene_id": "all",
+      "provider": "ffmpeg",
+      "resolution": "1920x1080",
+      "format": "mp4",
+      "duration_seconds": 62.04,
+      "cost_usd": 0.0,
+      "quality_score": 0.9,
+      "generation_summary": "H.264 high profile, yuv420p, 30fps, AAC 192k stereo."
+    }
+  ],
+  "total_cost_usd": 0.0,
+  "metadata": {
+    "providers_used": [
+      "platform image model",
+      "platform TTS",
+      "ffmpeg",
+      "local"
+    ],
+    "paid_calls": 0
+  }
+}

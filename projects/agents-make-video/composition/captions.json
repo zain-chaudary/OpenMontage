@@ -1,0 +1,112 @@
+[
+  {
+    "text": "Type one sentence, get a finished video.",
+    "t0": 0.0,
+    "t1": 2.7494486111111107
+  },
+  {
+    "text": "That's how AI video gets sold.",
+    "t0": 2.6894486111111107,
+    "t1": 4.828299999999999
+  },
+  {
+    "text": "But generation is the smallest part. The teams",
+    "t0": 5.1183000000000005,
+    "t1": 8.169508547008547
+  },
+  {
+    "text": "who do this well spend most of the",
+    "t0": 8.109508547008547,
+    "t1": 10.397004273504274
+  },
+  {
+    "text": "work before a single frame exists.",
+    "t0": 10.337004273504274,
+    "t1": 12.6245
+  },
+  {
+    "text": "First, research. Dozens of searches across forums,",
+    "t0": 12.8645,
+    "t1": 16.453160975609755
+  },
+  {
+    "text": "papers and news, so every number in",
+    "t0": 16.393160975609756,
+    "t1": 18.94398048780488
+  },
+  {
+    "text": "the script traces back to a source.",
+    "t0": 18.88398048780488,
+    "t1": 21.434800000000003
+  },
+  {
+    "text": "Then the script, words budgeted against",
+    "t0": 21.6749,
+    "t1": 24.070132323232322
+  },
+  {
+    "text": "seconds, and a scene plan for",
+    "t0": 24.010132323232323,
+    "t1": 25.821556565656564
+  },
+  {
+    "text": "what you see at each moment.",
+    "t0": 25.761556565656566,
+    "t1": 27.5146
+  },
+  {
+    "text": "Then the assets: narration, images, music. Each",
+    "t0": 27.7545,
+    "t1": 31.53051355932203
+  },
+  {
+    "text": "job routed to the best available tool,",
+    "t0": 31.470513559322033,
+    "t1": 34.54977457627118
+  },
+  {
+    "text": "and every choice written down.",
+    "t0": 34.48977457627118,
+    "t1": 36.94969999999999
+  },
+  {
+    "text": "Then the cut, camera moves, captions, a",
+    "t0": 37.189699999999995,
+    "t1": 40.44197826086956
+  },
+  {
+    "text": "mix. And only then the render, the",
+    "t0": 40.38197826086956,
+    "t1": 43.23522173913043
+  },
+  {
+    "text": "part everyone assumes is the whole job.",
+    "t0": 43.17522173913043,
+    "t1": 46.427499999999995
+  },
+  {
+    "text": "The last step is invisible. The agent audits",
+    "t0": 46.7175,
+    "t1": 49.96333783783784
+  },
+  {
+    "text": "its own film, frame by frame, and refuses",
+    "t0": 49.90333783783784,
+    "t1": 52.93678648648649
+  },
+  {
+    "text": "to ship it if it fails.",
+    "t0": 52.87678648648649,
+    "t1": 54.63590000000001
+  },
+  {
+    "text": "That's not generation. That's production.",
+    "t0": 55.025999999999996,
+    "t1": 58.543
+  },
+  {
+    "text": "OpenMontage, twelve pipelines, one agent.",
+    "t0": 58.483,
+    "t1": 62.0
+  }
+]

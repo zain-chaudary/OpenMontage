@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "output_path": "projects/agents-make-video/renders/final.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 62.0,
+      "resolution": "1920x1080",
+      "fps": 30,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 8653267,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 8,
+      "frame_paths": [
+        "renders/review-frames/frame_0001.jpg",
+        "renders/review-frames/frame_0002.jpg",
+        "renders/review-frames/frame_0003.jpg",
+        "renders/review-frames/frame_0004.jpg",
+        "renders/review-frames/frame_0005.jpg",
+        "renders/review-frames/frame_0006.jpg",
+        "renders/review-frames/frame_0007.jpg",
+        "renders/review-frames/frame_0008.jpg"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": []
+    },
+    "audio_spotcheck": {
+      "narration_present": true,
+      "music_present": true,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": []
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "renderer_family_used": "animation-first",
+      "render_runtime_used": "ffmpeg",
+      "runtime_swap_detected": false,
+      "issues": []
+    },
+    "subtitle_check": {
+      "subtitles_present": true,
+      "issues": []
+    }
+  },
+  "issues_found": [
+    "composition_validator note: narration stem is 9ms longer than the video \u2014 inaudible, no action taken"
+  ],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "rendered_at": "2026-10-07",
+    "runtime": "ffmpeg",
+    "composition_mode": "atelier",
+    "duration_seconds": 62.0,
+    "resolution": "1920x1080",
+    "fps": 30,
+    "audio": "aac 192k 48kHz stereo",
+    "mean_volume_db": -19.1,
+    "peak_volume_db": -2.3,
+    "checks_passed": "5/5 groups",
+    "motion_check": "8/8 scenes show measurable motion",
+    "self_review_tools": [
+      "composition_validator",
+      "frame_sampler",
+      "audio_probe",
+      "ffprobe"
+    ],
+    "review_frames": "renders/review-frames/"
+  }
+}

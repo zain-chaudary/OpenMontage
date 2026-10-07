@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "projects/agents-make-video/renders/final.mp4",
+      "format": "mp4",
+      "fps": 30,
+      "duration_seconds": 62.0,
+      "resolution": "1920x1080",
+      "codec": "h264 (yuv420p, high profile)",
+      "audio_codec": "aac 192k 48kHz stereo",
+      "file_size_bytes": 8653267,
+      "platform_target": "youtube"
+    }
+  ],
+  "render_time_seconds": 93.0,
+  "warnings": [
+    "composition_validator: narration stem (62.009s) exceeds video (62.000s) by 9ms \u2014 inaudible, no action taken"
+  ],
+  "verification_notes": [
+    "Rule Zero path: animated-explainer driven stage by stage through research -> proposal -> script -> scene_plan -> assets -> edit -> compose, then post-render self-review.",
+    "Self-review passed on ffprobe structural validation, frame sampling with visual inspection, audio level and silence analysis, delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
+    "Deliberate runtime disclosure: ffmpeg runtime used because the bundled browser runtimes (Remotion, HyperFrames) require Chrome/Chromium shared libraries unobtainable in this environment."
+  ],
+  "render_grammar": "animation-first",
+  "slideshow_risk_score": {
+    "average": 0.18,
+    "verdict": "strong"
+  },
+  "decision_log_ref": "projects/agents-make-video/artifacts/decision_log.json",
+  "final_review_ref": "projects/agents-make-video/artifacts/final_review.json",
+  "metadata": {
+    "runtime": "ffmpeg",
+    "composition_mode": "atelier",
+    "renderer": "composition/renderer.py (Pillow frame compositor)",
+    "frames": 1860,
+    "fps": 30,
+    "captions_rendered": 22,
+    "still_frame_qa": "renders/review-frames/",
+    "post_render_tools": [
+      "ffprobe",
+      "frame_sampler",
+      "audio_probe",
+      "composition_validator"
+    ],
+    "grammar_notes": "Editorial premium-minimalist: off-white field, hairline rules, single cobalt accent, uniform eyebrow + progress rail, photographic insets in rounded cards, cross-dissolves on section boundaries."
+  }
+}

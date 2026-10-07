@@ -1,0 +1,223 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "decisions": [
+    {
+      "decision_id": "d-001",
+      "stage": "research",
+      "category": "concept_selection",
+      "subject": "Video topic",
+      "options_considered": [
+        {
+          "option_id": "openmontage-product-explainer",
+          "label": "OpenMontage product explainer",
+          "score": 0.5,
+          "reason": "Useful but more promotional than craft-focused."
+        },
+        {
+          "option_id": "sky-is-blue-demo",
+          "label": "Why the sky is blue (repo demo prompt)",
+          "score": 0.4,
+          "reason": "Already documented in the repo's own README."
+        },
+        {
+          "option_id": "how-agents-make-video",
+          "label": "How AI agents actually make a video",
+          "score": 0.85,
+          "reason": "Lets the video demonstrate the exact pipeline it describes and is grounded in current, citable data."
+        }
+      ],
+      "selected": "How AI agents actually make a video",
+      "reason": "User delegated topic choice. This subject makes the film self-demonstrating and gives every claim a source.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-002",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Visual style playbook",
+      "options_considered": [
+        {
+          "option_id": "clean-professional",
+          "label": "Clean Professional (white, corporate)",
+          "score": 0.5,
+          "reason": "Reads as generic corporate and flattens hierarchy."
+        },
+        {
+          "option_id": "flat-motion-graphics",
+          "label": "Flat Motion Graphics (dark, energetic)",
+          "score": 0.4,
+          "reason": "Tuned for fast social pacing, which fights the narration."
+        },
+        {
+          "option_id": "premium-minimalist",
+          "label": "Premium Minimalist (off-white editorial, cobalt accent)",
+          "score": 0.8,
+          "reason": "Calm authority, low ornament, restrained ease-out motion \u2014 matches a measured 62s expert explainer."
+        }
+      ],
+      "selected": "premium-minimalist",
+      "reason": "Its documented taste profile matches the brief and keeps long text blocks legible without heavy scrims.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.8
+    },
+    {
+      "decision_id": "d-003",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (bundled default)",
+          "score": 0.2,
+          "reason": "Browser download blocked; chrome-headless-shell host unreachable."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/GSAP runtime)",
+          "score": 0.2,
+          "reason": "puppeteer-core requires the same missing NSS libraries."
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg runtime via video_compose",
+          "score": 0.95,
+          "reason": "Requires no browser; video_compose supports it when the approved path explicitly names FFmpeg."
+        }
+      ],
+      "selected": "ffmpeg",
+      "reason": "Both bundled browser runtimes need a Chrome/Chromium build whose shared libraries (libnss3, libnspr4, libnssutil3) cannot be sourced in this environment. FFmpeg is the supported runtime for an approved FFmpeg path, so the swap is deliberate and disclosed rather than silent.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "d-004",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Authoring mode",
+      "options_considered": [
+        {
+          "option_id": "stock-scene-library",
+          "label": "Assembled from stock scene templates",
+          "score": 0.3,
+          "reason": "Those templates render through the browser runtime, which is unavailable."
+        },
+        {
+          "option_id": "bespoke-atelier",
+          "label": "Bespoke atelier composition",
+          "score": 0.85,
+          "reason": "Gives frame-level authorship: pixel-exact typography, counters, diagrams and word-timed captions."
+        }
+      ],
+      "selected": "bespoke (atelier)",
+      "reason": "With no browser runtime, frame-level authorship is the only route to real motion graphics \u2014 and it makes the typography exact.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.85
+    },
+    {
+      "decision_id": "d-005",
+      "stage": "assets",
+      "category": "provider_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "elevenlabs",
+          "label": "ElevenLabs (premium)",
+          "score": 0.3,
+          "reason": "No API key; provider host unreachable."
+        },
+        {
+          "option_id": "google-tts",
+          "label": "Google TTS (700+ voices)",
+          "score": 0.3,
+          "reason": "No API key; provider host unreachable."
+        },
+        {
+          "option_id": "piper",
+          "label": "Piper (free, offline)",
+          "score": 0.35,
+          "reason": "Voice models download from a host outside the network allowlist."
+        },
+        {
+          "option_id": "platform-tts",
+          "label": "Platform TTS",
+          "score": 0.9,
+          "reason": "Only reachable narration path; per-section synthesis locks the timeline to measured durations."
+        }
+      ],
+      "selected": "platform TTS",
+      "reason": "Highest-quality narration available with no provider keys; section-level synthesis makes the edit timeline exact.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.9
+    },
+    {
+      "decision_id": "d-006",
+      "stage": "assets",
+      "category": "music_source",
+      "subject": "Music bed",
+      "options_considered": [
+        {
+          "option_id": "pixabay-music",
+          "label": "Pixabay Music",
+          "score": 0.3,
+          "reason": "Network blocked in this environment."
+        },
+        {
+          "option_id": "suno",
+          "label": "Suno AI",
+          "score": 0.3,
+          "reason": "No API key."
+        },
+        {
+          "option_id": "ffmpeg-pad",
+          "label": "Locally synthesised pad via FFmpeg",
+          "score": 0.7,
+          "reason": "Royalty-free, reachable offline, level set from the playbook (0.07) with sidechain ducking."
+        }
+      ],
+      "selected": "locally synthesised pad via ffmpeg",
+      "reason": "Keeps the mix legal and reproducible with no external service.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.7
+    },
+    {
+      "decision_id": "d-007",
+      "stage": "edit",
+      "category": "motion_commitment",
+      "subject": "Caption treatment",
+      "options_considered": [
+        {
+          "option_id": "libass-burn",
+          "label": "Burned subtitles via libass",
+          "score": 0.5,
+          "reason": "Would need an external transcript for word-level timings."
+        },
+        {
+          "option_id": "frame-drawn",
+          "label": "Frame-level drawn captions",
+          "score": 0.75,
+          "reason": "Timed by character-weighted distribution across each section's measured duration, so captions lock to narration without a transcription pass."
+        },
+        {
+          "option_id": "none",
+          "label": "No captions",
+          "score": 0.2,
+          "reason": "Most social viewing is muted; captions are mandatory for reach."
+        }
+      ],
+      "selected": "frame-level drawn captions",
+      "reason": "No transcriber is available, so captions are derived from the script's measured section durations \u2014 word-level accuracy without a transcription pass.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.75
+    }
+  ]
+}

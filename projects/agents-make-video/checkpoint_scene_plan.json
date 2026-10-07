@@ -1,0 +1,263 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-10-07T14:23:19.077686+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "premium-minimalist",
+      "scenes": [
+        {
+          "id": "scene-01",
+          "type": "text_card",
+          "description": "Cold open: a prompt chip types itself, then the frame hard-cuts to a full-bleed photographic plate. Render intent: hero_title text card into photographic plate.",
+          "start_seconds": 0.0,
+          "end_seconds": 4.828,
+          "script_section_id": "s1",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "introduce_subject",
+          "hero_moment": true,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Editorial still: calm review room with a screen of blank frames, no readable text.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s1 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-02",
+          "type": "animation",
+          "description": "The prompt chip expands into four labelled decision rows, resolving into a 70/30 split bar with counting numerals. Render intent: animated split panel plus stat bar.",
+          "start_seconds": 5.178,
+          "end_seconds": 12.625,
+          "script_section_id": "s2",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "deliver_payload",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Top-down grid of blank index cards with one cobalt accent card.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s2 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-03",
+          "type": "diagram",
+          "description": "Thin-line diagram: a research node fans out to Forums / Papers / News, then compresses into a stat card counting up to 8 cited sources. Render intent: progressive-reveal diagram plus stat card.",
+          "start_seconds": 12.925,
+          "end_seconds": 21.435,
+          "script_section_id": "s3",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "evidence",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Research materials flat-lay: blank sheets, unreadable newsprint, plain notebook.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s3 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-04",
+          "type": "animation",
+          "description": "A screenplay page fades up, condenses into a word-budget bar (146 words / 62 seconds), then breaks into eight storyboard blocks. Render intent: document reveal into storyboard strip.",
+          "start_seconds": 21.735,
+          "end_seconds": 27.515,
+          "script_section_id": "s4",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "deliver_payload",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Blank screenplay page with pencil, shallow depth of field.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s4 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-05",
+          "type": "diagram",
+          "description": "Asset routing diagram: three columns light up in turn with tool chips, beside a decision-log rail filling entry by entry. Render intent: routing diagram with chips.",
+          "start_seconds": 27.814,
+          "end_seconds": 36.95,
+          "script_section_id": "s5",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "evidence",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Film slate, headphones, lens and colour chips flat-lay.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s5 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-06",
+          "type": "animation",
+          "description": "An edit timeline scrubs left to right with cut markers, then collapses into a render progress bar landing on final.mp4. Render intent: timeline animation into render progress.",
+          "start_seconds": 37.25,
+          "end_seconds": 46.427,
+          "script_section_id": "s6",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "build_tension",
+          "hero_moment": false,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Minimal edit suite with abstract timeline bars on screen.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s6 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-07",
+          "type": "diagram",
+          "description": "Quality-gate diagram: four checklist rows resolve to ticks while a ghosted FAIL row stays greyed underneath, then a PASS stamp presses in. Render intent: checklist diagram with stamp.",
+          "start_seconds": 46.778,
+          "end_seconds": 54.636,
+          "script_section_id": "s7",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "resolution",
+          "hero_moment": true,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Empty daylight studio with cyclorama and a single chair.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s7 narration segment",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "scene-08",
+          "type": "text_card",
+          "description": "Closing card over a warm end-of-day plate: two lines fade up in steps, resolving into the OpenMontage wordmark and pipeline list. Render intent: closing text card over photographic plate.",
+          "start_seconds": 55.086,
+          "end_seconds": 62.04,
+          "script_section_id": "s8",
+          "framing": "editorial grid, large margins, one focal object",
+          "movement": "progressive reveal / counting numerals / push-in",
+          "transition_in": "fade",
+          "transition_out": "dissolve",
+          "overlay_notes": "Playbook stat-card and caption styling.",
+          "narrative_role": "call_to_action",
+          "hero_moment": true,
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Empty film set at end of day, warm raking light.",
+              "source": "generate"
+            },
+            {
+              "type": "narration",
+              "description": "s8 narration segment",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "scene_type_sequence": [
+          "text_card",
+          "animation",
+          "diagram",
+          "animation",
+          "diagram",
+          "animation",
+          "diagram",
+          "text_card"
+        ],
+        "constraints_checked": {
+          "no_three_consecutive_same_type": true,
+          "min_hold_seconds": 3.0,
+          "max_hold_seconds": 12.0,
+          "distinct_scene_types": 3
+        }
+      }
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "8 scenes across 3 scene types, no run of 3+ identical types; every required asset mapped to an available tool.",
+    "checklist": {
+      "no_gaps": true,
+      "min_3_scene_types": true,
+      "no_3_consecutive_same": true,
+      "asset_feasibility": true
+    }
+  }
+}
