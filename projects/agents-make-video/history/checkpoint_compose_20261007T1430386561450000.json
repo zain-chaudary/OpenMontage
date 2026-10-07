@@ -1,0 +1,151 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-10-07T14:30:38.656145+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/agents-make-video/renders/final.mp4",
+          "format": "mp4",
+          "fps": 30,
+          "duration_seconds": 62.0,
+          "resolution": "1920x1080",
+          "codec": "h264 (yuv420p, high profile)",
+          "audio_codec": "aac 192k 48kHz stereo",
+          "file_size_bytes": 7041739,
+          "platform_target": "youtube"
+        }
+      ],
+      "render_time_seconds": 93.0,
+      "warnings": [
+        "composition_validator: narration stem (62.009s) exceeds video (62.000s) by 9ms \u2014 inaudible, no action taken"
+      ],
+      "verification_notes": [
+        "Rule Zero path: animated-explainer driven stage by stage through research -> proposal -> script -> scene_plan -> assets -> edit -> compose, then post-render self-review.",
+        "Self-review passed on ffprobe structural validation, frame sampling with visual inspection, audio level and silence analysis, delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
+        "Deliberate runtime disclosure: ffmpeg runtime used because the bundled browser runtimes (Remotion, HyperFrames) require Chrome/Chromium shared libraries unobtainable in this environment."
+      ],
+      "render_grammar": "animation-first",
+      "slideshow_risk_score": {
+        "average": 0.18,
+        "verdict": "strong"
+      },
+      "decision_log_ref": "projects/agents-make-video/artifacts/decision_log.json",
+      "final_review_ref": "projects/agents-make-video/artifacts/final_review.json",
+      "metadata": {
+        "runtime": "ffmpeg",
+        "composition_mode": "atelier",
+        "renderer": "composition/renderer.py (Pillow frame compositor)",
+        "frames": 1860,
+        "fps": 30,
+        "captions_rendered": 22,
+        "still_frame_qa": "renders/review-frames/",
+        "post_render_tools": [
+          "ffprobe",
+          "frame_sampler",
+          "audio_probe",
+          "composition_validator"
+        ],
+        "grammar_notes": "Editorial premium-minimalist: off-white field, hairline rules, single cobalt accent, uniform eyebrow + progress rail, photographic insets in rounded cards, cross-dissolves on section boundaries."
+      }
+    },
+    "final_review": {
+      "version": "1.0",
+      "output_path": "projects/agents-make-video/renders/final.mp4",
+      "status": "pass",
+      "checks": {
+        "technical_probe": {
+          "valid_container": true,
+          "duration_seconds": 62.0,
+          "resolution": "1920x1080",
+          "fps": 30,
+          "has_audio": true,
+          "codec": "h264",
+          "file_size_bytes": 7041739,
+          "issues": []
+        },
+        "visual_spotcheck": {
+          "frames_sampled": 8,
+          "frame_paths": [
+            "renders/review-frames/frame_0001.jpg",
+            "renders/review-frames/frame_0002.jpg",
+            "renders/review-frames/frame_0003.jpg",
+            "renders/review-frames/frame_0004.jpg",
+            "renders/review-frames/frame_0005.jpg",
+            "renders/review-frames/frame_0006.jpg",
+            "renders/review-frames/frame_0007.jpg",
+            "renders/review-frames/frame_0008.jpg"
+          ],
+          "black_frames_detected": false,
+          "broken_overlays": false,
+          "missing_assets": false,
+          "unreadable_text": false,
+          "issues": []
+        },
+        "audio_spotcheck": {
+          "narration_present": true,
+          "music_present": true,
+          "unexpected_silence": false,
+          "clipping_detected": false,
+          "mix_intelligible": true,
+          "issues": []
+        },
+        "promise_preservation": {
+          "delivery_promise_honored": true,
+          "renderer_family_used": "animation-first",
+          "render_runtime_used": "ffmpeg",
+          "runtime_swap_detected": false,
+          "issues": []
+        },
+        "subtitle_check": {
+          "subtitles_present": true,
+          "issues": []
+        }
+      },
+      "issues_found": [
+        "v1 defects caught in post-hoc visual QA at full resolution and fixed before delivery: (a) inter-scene gaps (0.30-0.45s) matched no scheduled scene, so the frame scheduler's fallback rendered the closing shot - 7 flashes, 2.35s total; (b) scene 5's asset-chip labels were baked with the pre-animation text colour (layer cache key omitted the state flag), rendering them invisible on the dark cards; also fixed: the scene-3 stat label could be overlapped by the caption band, and the progress rail showed per-scene instead of film-wide progress.",
+        "review protocol change: spotcheck frames are now sampled at scene midpoints instead of uniform eighths, which is what allowed both defects to hide in the v1 pass (frame 7 landed inside a gap).",
+        "composition_validator note: narration stem is 9ms longer than the video \u2014 inaudible, no action taken"
+      ],
+      "recommended_action": "present_to_user",
+      "metadata": {
+        "rendered_at": "2026-10-07",
+        "runtime": "ffmpeg",
+        "composition_mode": "atelier",
+        "duration_seconds": 62.0,
+        "resolution": "1920x1080",
+        "fps": 30,
+        "audio": "aac 192k 48kHz stereo",
+        "mean_volume_db": -19.1,
+        "peak_volume_db": -2.3,
+        "checks_passed": "5/5 groups",
+        "motion_check": "8/8 scenes show measurable motion",
+        "self_review_tools": [
+          "composition_validator",
+          "frame_sampler",
+          "audio_probe",
+          "ffprobe"
+        ],
+        "review_frames": "renders/review-frames/"
+      }
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "Rendered renders/final.mp4 (62.000s, 1080p30, H.264/AAC). Self-review status: pass.",
+    "checklist": {
+      "output_playable": true,
+      "duration_within_5pct": true,
+      "audio_balanced": true,
+      "runtime_matches_proposal": true
+    }
+  }
+}

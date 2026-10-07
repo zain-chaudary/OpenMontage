@@ -64,11 +64,11 @@
            src="../renders/final.mp4"></video>
   </div>
   <p class="hint">▶ <b>Press play above.</b> If the picture stays black, click the video once — or
-     <a href="../renders/final.mp4" download>download the MP4 (8.65 MB)</a> and play it locally.
+     <a href="../renders/final.mp4" download>download the MP4 (7.04 MB)</a> and play it locally.
      Sound is on after you unmute with the speaker icon.</p>
 
   <div class="bar">
-    <a href="../renders/final.mp4" download>⬇ final.mp4 · 1080p · 8.65 MB</a>
+    <a href="../renders/final.mp4" download>⬇ final.mp4 · 1080p · 7.04 MB</a>
     <a href="../renders/review-frames/frame_0001.jpg" target="_blank">review frames</a>
     <a href="../artifacts/script.json" target="_blank">script.json</a>
     <a href="../artifacts/scene_plan.json" target="_blank">scene_plan.json</a>
@@ -102,6 +102,9 @@
     <li><b>Compose</b> <span>— frame compositor + FFmpeg encode and mux at 1080p30.</span></li>
     <li><b>Self-review</b> <span>— probe, frame sampling, audio analysis, promise check → PASS, ship.</span></li>
   </ol>
+
+  <h2>Revisions</h2>
+  <p class="sub" style="margin-top:0">v2 fixed four defects found by full-resolution QA: inter-scene gap flashes (2.35 s), invisible scene-5 chip labels, a caption band overlapping scene 3's stat label, and a per-scene progress rail. Review frames now sample scene midpoints.</p>
 
   <h2>Verified output</h2>
   <table>

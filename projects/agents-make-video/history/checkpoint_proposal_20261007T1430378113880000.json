@@ -1,0 +1,511 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-10-07T14:30:37.811388+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "c1",
+          "title": "The 70/30 Inversion",
+          "hook": "Generation is the smallest part of the job.",
+          "narrative_structure": "myth_busting",
+          "visual_approach": "Editorial off-white field, hairline dividers, one cobalt accent; photographic insets as evidence, never wallpaper.",
+          "suggested_playbook": "premium-minimalist",
+          "target_audience": "creators and marketers who have used an AI video tool",
+          "target_platform": "youtube",
+          "target_duration_seconds": 62,
+          "key_points": [
+            "about 70% of the work happens before generation",
+            "every stage is a decision that gets logged, not a prompt",
+            "a review gate can refuse to ship the video"
+          ],
+          "core_message": "Agentic video is production with a pipeline \u2014 not generation with a prompt.",
+          "cta": "Watch the rest of the pipeline breakdowns.",
+          "tone": "measured, expert, low hype",
+          "grounded_in": [
+            "MIT Technology Review 70/30 split",
+            "Forbes ~50% raw-output error rate",
+            "Wyzowl 63% adoption"
+          ],
+          "why_this_works": "Leads with the most counterintuitive sourced number, maps 1:1 onto the pipeline stages it describes, and the closing claim is verifiable against the video itself."
+        },
+        {
+          "id": "c2",
+          "title": "Follow One Frame",
+          "hook": "This video did not start with a prompt.",
+          "narrative_structure": "journey",
+          "visual_approach": "Reverse chronology: open on the finished frame, walk backwards through compose, edit, assets, script, research.",
+          "suggested_playbook": "premium-minimalist",
+          "target_audience": "technical generalists and engineers",
+          "target_platform": "youtube",
+          "target_duration_seconds": 60,
+          "key_points": [
+            "Trace a single on-screen asset backwards through every production stage",
+            "Show that each stage adds a decision a single prompt cannot make",
+            "Reveal how much of the timeline survives unchanged after review"
+          ],
+          "core_message": "Every second on screen is a chain of decisions.",
+          "cta": "Build one yourself.",
+          "tone": "cinematic, curious",
+          "grounded_in": [
+            "multi-agent stage decomposition reporting"
+          ],
+          "why_this_works": "Inherently curiosity-driven, but it delays the payoff and asks more attention from a cold viewer."
+        },
+        {
+          "id": "c3",
+          "title": "Nobody Can Tell (And That's The Problem)",
+          "hook": "Only 9.5% of people can spot AI video. So why does it still hurt brands?",
+          "narrative_structure": "data_narrative",
+          "visual_approach": "Chart-forward editorial frames, big numbers, before/after brand perception split.",
+          "suggested_playbook": "clean-professional",
+          "target_audience": "brand and marketing decision makers",
+          "target_platform": "youtube",
+          "target_duration_seconds": 60,
+          "key_points": [
+            "Detection is near-impossible while reputation damage is measurable",
+            "Quality control is an economic decision, not a craft preference"
+          ],
+          "core_message": "Quality gates are the difference between content and liability.",
+          "cta": "Audit your own review step.",
+          "tone": "provocative, evidence-led",
+          "grounded_in": [
+            "Pexo 2026 statistics roundup"
+          ],
+          "why_this_works": "Strong emotional stakes for brand-side viewers, weaker craft payoff for the maker audience."
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "c1",
+        "rationale": "Selected by the agent under delegated authority ('You pick the topic', plus approved direction: animated explainer, 16:9, ~60s). c1 has the strongest sourced hook, maps directly onto the eight production stages so the video demonstrates the machine it describes, and closes on a claim the viewer can verify against this video.",
+        "modifications": [
+          "Duration target set to 62s (\u00b15% of the 60s request)",
+          "Closing beat names the pipeline that produced it"
+        ]
+      },
+      "production_plan": {
+        "pipeline": "animated-explainer",
+        "playbook": "premium-minimalist",
+        "render_runtime": "ffmpeg",
+        "stages": [
+          {
+            "stage": "research",
+            "tools": [
+              {
+                "tool_name": "agent_web_search",
+                "role": "3 targeted searches producing 8 cited sources and 7 quantitative data points",
+                "provider": "agent",
+                "available": true
+              }
+            ],
+            "approach": "Gather sourced data, landscape scan and audience misconceptions before writing a word."
+          },
+          {
+            "stage": "script",
+            "tools": [
+              {
+                "tool_name": "agent_authoring",
+                "role": "146-word narration with delivery cues against a 62s budget",
+                "provider": "agent",
+                "available": true
+              }
+            ],
+            "approach": "Write to a word budget grounded in research_brief data points."
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [
+              {
+                "tool_name": "agent_authoring",
+                "role": "8 scenes across 3 scene types with per-scene required assets",
+                "provider": "agent",
+                "available": true
+              }
+            ],
+            "approach": "Alternate text_card / animation / diagram so no three consecutive scenes share a type."
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "platform_image_generation",
+                "role": "8 editorial plates for full-bleed and inset frames",
+                "provider": "platform image model",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Zero-marginal-cost generator; OpenMontage's own image tools (FLUX, Imagen, Seedream...) report unavailable here for lack of API keys and network access."
+              },
+              {
+                "tool_name": "platform_tts",
+                "role": "8 narration segments (~146 words), one per section",
+                "provider": "platform TTS",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Highest-quality narration reachable here; OpenMontage's 14 TTS tools need API keys, and Piper's voice models are not downloadable from allowlisted hosts."
+              },
+              {
+                "tool_name": "ffmpeg_synthesis",
+                "role": "Locally synthesised ambient score",
+                "provider": "ffmpeg",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "No music API reachable; a synthesised pad keeps the mix royalty-free."
+              }
+            ],
+            "approach": "Generate visuals and narration per scene, then log every asset with prompt, provider and cost."
+          },
+          {
+            "stage": "edit",
+            "tools": [
+              {
+                "tool_name": "bespoke_atelier_compositor",
+                "role": "Frame-accurate motion-graphics renderer (type, diagrams, captions, transitions)",
+                "provider": "local",
+                "available": true
+              }
+            ],
+            "approach": "composition_mode=atelier with renderer_family=bespoke: hand-authored frames piped to FFmpeg."
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "role": "Assemble, burn in-frame captions, encode H.264/AAC 1080p30",
+                "provider": "ffmpeg",
+                "available": true
+              },
+              {
+                "tool_name": "audio_mixer",
+                "role": "Narration + score with sidechain ducking and fades",
+                "provider": "ffmpeg",
+                "available": true
+              }
+            ],
+            "approach": "Runtime locked to ffmpeg in edit_decisions; no silent swap permitted."
+          },
+          {
+            "stage": "review",
+            "tools": [
+              {
+                "tool_name": "composition_validator",
+                "role": "Structure and asset-path validation of edit_decisions",
+                "provider": "local",
+                "available": true
+              },
+              {
+                "tool_name": "frame_sampler",
+                "role": "Sample frames from the render for visual QA",
+                "provider": "ffmpeg",
+                "available": true
+              },
+              {
+                "tool_name": "audio_probe",
+                "role": "Loudness and silence verification",
+                "provider": "ffprobe",
+                "available": true
+              }
+            ],
+            "approach": "Post-render self-review; the render is rejected if any check fails."
+          }
+        ],
+        "decision_log_ref": "/home/user/OpenMontage/projects/agents-make-video/decision_log.json"
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 0.0,
+        "budget_verdict": "within_budget",
+        "budget_cap_usd": 2.0,
+        "line_items": [
+          {
+            "tool": "agent_web_search",
+            "operation": "topic research",
+            "quantity": 3,
+            "estimated_usd": 0.0
+          },
+          {
+            "tool": "platform_image_generation",
+            "operation": "editorial plates",
+            "quantity": 8,
+            "estimated_usd": 0.0
+          },
+          {
+            "tool": "platform_tts",
+            "operation": "narration segments",
+            "quantity": 8,
+            "estimated_usd": 0.0
+          },
+          {
+            "tool": "ffmpeg_synthesis",
+            "operation": "score",
+            "quantity": 1,
+            "estimated_usd": 0.0
+          },
+          {
+            "tool": "video_compose",
+            "operation": "assemble + encode",
+            "quantity": 1,
+            "estimated_usd": 0.0
+          }
+        ]
+      },
+      "approval": {
+        "status": "approved",
+        "user_notes": "User approved: animated explainer path, 16:9 landscape, ~60s, topic delegated to the agent.",
+        "approved_budget_usd": 0.0
+      },
+      "metadata": {
+        "preflight": [
+          "registry.discover() -> 37 tools available, 105 unavailable (no provider API keys / restricted network)",
+          "ffmpeg + ffprobe resolved from local builds"
+        ],
+        "runtime_rationale": "Remotion and HyperFrames are the bundled browser runtimes, but both need a Chrome/Chromium build whose shared libraries (libnss3, libnspr4, libnssutil3) are unobtainable inside this environment's network allowlist. video_compose explicitly supports the ffmpeg runtime when the approved path names it, so ffmpeg is chosen deliberately \u2014 never silently swapped.",
+        "asset_strategy": "Photography for atmosphere, procedural rendering for information. All typography, counters, diagrams and captions are drawn at frame level so they are pixel-exact and word-timed."
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "agents-make-video",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "research",
+          "category": "concept_selection",
+          "subject": "Video topic",
+          "options_considered": [
+            {
+              "option_id": "openmontage-product-explainer",
+              "label": "OpenMontage product explainer",
+              "score": 0.5,
+              "reason": "Useful but more promotional than craft-focused."
+            },
+            {
+              "option_id": "sky-is-blue-demo",
+              "label": "Why the sky is blue (repo demo prompt)",
+              "score": 0.4,
+              "reason": "Already documented in the repo's own README."
+            },
+            {
+              "option_id": "how-agents-make-video",
+              "label": "How AI agents actually make a video",
+              "score": 0.85,
+              "reason": "Lets the video demonstrate the exact pipeline it describes and is grounded in current, citable data."
+            }
+          ],
+          "selected": "How AI agents actually make a video",
+          "reason": "User delegated topic choice. This subject makes the film self-demonstrating and gives every claim a source.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "proposal",
+          "category": "playbook_selection",
+          "subject": "Visual style playbook",
+          "options_considered": [
+            {
+              "option_id": "clean-professional",
+              "label": "Clean Professional (white, corporate)",
+              "score": 0.5,
+              "reason": "Reads as generic corporate and flattens hierarchy."
+            },
+            {
+              "option_id": "flat-motion-graphics",
+              "label": "Flat Motion Graphics (dark, energetic)",
+              "score": 0.4,
+              "reason": "Tuned for fast social pacing, which fights the narration."
+            },
+            {
+              "option_id": "premium-minimalist",
+              "label": "Premium Minimalist (off-white editorial, cobalt accent)",
+              "score": 0.8,
+              "reason": "Calm authority, low ornament, restrained ease-out motion \u2014 matches a measured 62s expert explainer."
+            }
+          ],
+          "selected": "premium-minimalist",
+          "reason": "Its documented taste profile matches the brief and keeps long text blocks legible without heavy scrims.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.8
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion (bundled default)",
+              "score": 0.2,
+              "reason": "Browser download blocked; chrome-headless-shell host unreachable."
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/GSAP runtime)",
+              "score": 0.2,
+              "reason": "puppeteer-core requires the same missing NSS libraries."
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg runtime via video_compose",
+              "score": 0.95,
+              "reason": "Requires no browser; video_compose supports it when the approved path explicitly names FFmpeg."
+            }
+          ],
+          "selected": "ffmpeg",
+          "reason": "Both bundled browser runtimes need a Chrome/Chromium build whose shared libraries (libnss3, libnspr4, libnssutil3) cannot be sourced in this environment. FFmpeg is the supported runtime for an approved FFmpeg path, so the swap is deliberate and disclosed rather than silent.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "Authoring mode",
+          "options_considered": [
+            {
+              "option_id": "stock-scene-library",
+              "label": "Assembled from stock scene templates",
+              "score": 0.3,
+              "reason": "Those templates render through the browser runtime, which is unavailable."
+            },
+            {
+              "option_id": "bespoke-atelier",
+              "label": "Bespoke atelier composition",
+              "score": 0.85,
+              "reason": "Gives frame-level authorship: pixel-exact typography, counters, diagrams and word-timed captions."
+            }
+          ],
+          "selected": "bespoke (atelier)",
+          "reason": "With no browser runtime, frame-level authorship is the only route to real motion graphics \u2014 and it makes the typography exact.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "assets",
+          "category": "provider_selection",
+          "subject": "Narration TTS provider",
+          "options_considered": [
+            {
+              "option_id": "elevenlabs",
+              "label": "ElevenLabs (premium)",
+              "score": 0.3,
+              "reason": "No API key; provider host unreachable."
+            },
+            {
+              "option_id": "google-tts",
+              "label": "Google TTS (700+ voices)",
+              "score": 0.3,
+              "reason": "No API key; provider host unreachable."
+            },
+            {
+              "option_id": "piper",
+              "label": "Piper (free, offline)",
+              "score": 0.35,
+              "reason": "Voice models download from a host outside the network allowlist."
+            },
+            {
+              "option_id": "platform-tts",
+              "label": "Platform TTS",
+              "score": 0.9,
+              "reason": "Only reachable narration path; per-section synthesis locks the timeline to measured durations."
+            }
+          ],
+          "selected": "platform TTS",
+          "reason": "Highest-quality narration available with no provider keys; section-level synthesis makes the edit timeline exact.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "assets",
+          "category": "music_source",
+          "subject": "Music bed",
+          "options_considered": [
+            {
+              "option_id": "pixabay-music",
+              "label": "Pixabay Music",
+              "score": 0.3,
+              "reason": "Network blocked in this environment."
+            },
+            {
+              "option_id": "suno",
+              "label": "Suno AI",
+              "score": 0.3,
+              "reason": "No API key."
+            },
+            {
+              "option_id": "ffmpeg-pad",
+              "label": "Locally synthesised pad via FFmpeg",
+              "score": 0.7,
+              "reason": "Royalty-free, reachable offline, level set from the playbook (0.07) with sidechain ducking."
+            }
+          ],
+          "selected": "locally synthesised pad via ffmpeg",
+          "reason": "Keeps the mix legal and reproducible with no external service.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.7
+        },
+        {
+          "decision_id": "d-007",
+          "stage": "edit",
+          "category": "motion_commitment",
+          "subject": "Caption treatment",
+          "options_considered": [
+            {
+              "option_id": "libass-burn",
+              "label": "Burned subtitles via libass",
+              "score": 0.5,
+              "reason": "Would need an external transcript for word-level timings."
+            },
+            {
+              "option_id": "frame-drawn",
+              "label": "Frame-level drawn captions",
+              "score": 0.75,
+              "reason": "Timed by character-weighted distribution across each section's measured duration, so captions lock to narration without a transcription pass."
+            },
+            {
+              "option_id": "none",
+              "label": "No captions",
+              "score": 0.2,
+              "reason": "Most social viewing is muted; captions are mandatory for reach."
+            }
+          ],
+          "selected": "frame-level drawn captions",
+          "reason": "No transcriber is available, so captions are derived from the script's measured section durations \u2014 word-level accuracy without a transcription pass.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.75
+        }
+      ]
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "3 differentiated concepts; c1 selected under delegated user authority. Runtime decision (ffmpeg) disclosed with rationale.",
+    "checklist": {
+      "min_3_concepts": true,
+      "itemized_cost": true,
+      "runtime_declared": true,
+      "approval_approved": true
+    }
+  },
+  "cost_snapshot": {
+    "estimated_usd": 0.0,
+    "cap_usd": 2.0
+  }
+}

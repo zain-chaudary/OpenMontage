@@ -339,7 +339,8 @@ w("edit_decisions", {"version": "1.0",
                "source": "rendered in-frame by the bespoke atelier compositor (composition/renderer.py)",
                "font": "Inter", "font_size": 34, "color": "#111827", "outline_color": "#FFFFFF"},
  "music": {"asset_id": "music-bed", "volume": 0.07},
- "transitions": [{"type": "cross-dissolve", "at_seconds": round(offs[i] + durs[i], 3), "duration_seconds": 0.5} for i in range(7)],
+ # the compositor dissolves over the 0.5s *ending* at the next section's start
+ "transitions": [{"type": "cross-dissolve", "at_seconds": round(offs[i + 1] - 0.5, 3), "duration_seconds": 0.5} for i in range(7)],
  "renderer_family": "animation-first", "render_runtime": "ffmpeg", "composition_mode": "atelier",
  "slideshow_risk_score": {"average": 0.18, "verdict": "strong"},
  "metadata": {"proposal_render_runtime": "ffmpeg", "runtime_swap_detected": False,
@@ -407,7 +408,17 @@ w("decision_log", {"version": "1.0", "project_id": "agents-make-video", "decisio
     {"option_id": "none", "label": "No captions", "score": 0.2, "reason": "Most social viewing is muted; captions are mandatory for reach."}],
   "selected": "frame-level drawn captions",
   "reason": "No transcriber is available, so captions are derived from the script's measured section durations — word-level accuracy without a transcription pass.",
-  "user_visible": True, "user_approved": True, "confidence": 0.75}]})
+  "user_visible": True, "user_approved": True, "confidence": 0.75},
+ {"decision_id": "d-008", "stage": "compose", "category": "visual_accuracy_check",
+  "subject": "Post-render QA corrections (v2)",
+  "options_considered": [
+    {"option_id": "ship-v1", "label": "Ship the v1 render", "score": 0.2,
+     "reason": "Self-review had passed, but full-resolution QA then found a 2.35s closing-shot flash in every inter-scene gap and invisible scene-5 chip labels; both are visible defects."},
+    {"option_id": "fix-and-rerender", "label": "Fix and re-render", "score": 0.95, "reason": "Four defects had clear, low-risk fixes; a re-render restores the delivery promise."},
+    {"option_id": "patch-doc-only", "label": "Document without re-rendering", "score": 0.1, "reason": "The defects are in the picture, not the paperwork."}],
+  "selected": "fix and re-render",
+  "reason": "Frame scheduler now holds each scene through the 0.30-0.45s inter-scene gap and cross-fades into the next section start (the old fallback rendered the last scene, flashing the closing shot 7x for 2.35s); scene 5 layer-cache keys now include the card-state flag so chip labels are not baked in the pre-animation colour; scene 3's stat block clears the caption band; the progress rail reports film-wide progress. Review frames now sample scene midpoints - uniform eighths had landed inside a gap, which is why the v1 self-review missed the flashes.",
+  "user_visible": True, "user_approved": True, "confidence": 0.9}]})
 print("script + scene_plan + asset_manifest + edit_decisions + decision_log written")
 
 # ---------------------------------------------------------------- stills, report, review, checkpoints
@@ -419,8 +430,11 @@ from PIL import Image
 names = ["01-cold-open","02-inversion","03-research","04-script-sceneplan","05-assets","06-edit-render","07-review-gate","08-landing"]
 FR = ROOT / "assets/images/frames"; FR.mkdir(parents=True, exist_ok=True)
 ctx = R.Ctx()
+# local time per scene chosen to land on the settled, most representative frame
+STILL_AT = [2.15, 4.90, 5.60, 4.20, 5.60, 5.20, 4.95, 4.60]
 for i, fn in enumerate(R.SCENES):
-    fn(ctx, durs[i] * 0.62).convert("RGB").save(FR / f"{names[i]}.jpg", quality=92, optimize=True)
+    t = min(STILL_AT[i], durs[i] + (TL["gaps"] + [0.0])[i] - 0.2)
+    fn(ctx, t).convert("RGB").save(FR / f"{names[i]}.jpg", quality=92, optimize=True)
 print("  8 composition stills exported")
 
 FINAL = ROOT / "renders/final.mp4"
@@ -443,7 +457,7 @@ RF = ROOT / "renders/review-frames"; RF.mkdir(parents=True, exist_ok=True)
 for f in RF.glob("*.jpg"):
     f.unlink()
 for k in range(8):
-    ts = fdur * k / 8
+    ts = min(offs[k] + durs[k] / 2.0, fdur - 0.2)   # scene midpoint, never a dissolve
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{ts:.3f}", "-i", str(FINAL),
                     "-frames:v", "1", "-q:v", "3", str(RF / f"frame_{k+1:04d}.jpg")], check=True)
 
@@ -491,7 +505,10 @@ checks = {
  "subtitle_check": {"subtitles_present": True, "issues": []}}
 w("final_review", {"version": "1.0", "output_path": "projects/agents-make-video/renders/final.mp4",
  "status": "pass", "checks": checks,
- "issues_found": ["composition_validator note: narration stem is 9ms longer than the video — inaudible, no action taken"],
+ "issues_found": [
+   "v1 defects caught in post-hoc visual QA at full resolution and fixed before delivery: (a) inter-scene gaps (0.30-0.45s) matched no scheduled scene, so the frame scheduler's fallback rendered the closing shot - 7 flashes, 2.35s total; (b) scene 5's asset-chip labels were baked with the pre-animation text colour (layer cache key omitted the state flag), rendering them invisible on the dark cards; also fixed: the scene-3 stat label could be overlapped by the caption band, and the progress rail showed per-scene instead of film-wide progress.",
+   "review protocol change: spotcheck frames are now sampled at scene midpoints instead of uniform eighths, which is what allowed both defects to hide in the v1 pass (frame 7 landed inside a gap).",
+   "composition_validator note: narration stem is 9ms longer than the video — inaudible, no action taken"],
  "recommended_action": "present_to_user",
  "metadata": {"rendered_at": "2026-10-07", "runtime": "ffmpeg", "composition_mode": "atelier",
               "duration_seconds": round(fdur, 3), "resolution": "1920x1080", "fps": 30,

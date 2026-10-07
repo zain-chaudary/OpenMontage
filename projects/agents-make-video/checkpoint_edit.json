@@ -4,7 +4,7 @@
   "pipeline_type": "animated-explainer",
   "stage": "edit",
   "status": "completed",
-  "timestamp": "2026-10-07T14:23:19.418202+00:00",
+  "timestamp": "2026-10-07T14:31:43.842369+00:00",
   "checkpoint_policy": "guided",
   "human_approval_required": false,
   "human_approved": false,
@@ -194,37 +194,37 @@
       "transitions": [
         {
           "type": "cross-dissolve",
-          "at_seconds": 4.828,
+          "at_seconds": 4.678,
           "duration_seconds": 0.5
         },
         {
           "type": "cross-dissolve",
-          "at_seconds": 12.625,
+          "at_seconds": 12.425,
           "duration_seconds": 0.5
         },
         {
           "type": "cross-dissolve",
-          "at_seconds": 21.435,
+          "at_seconds": 21.235,
           "duration_seconds": 0.5
         },
         {
           "type": "cross-dissolve",
-          "at_seconds": 27.515,
+          "at_seconds": 27.314,
           "duration_seconds": 0.5
         },
         {
           "type": "cross-dissolve",
-          "at_seconds": 36.95,
+          "at_seconds": 36.75,
           "duration_seconds": 0.5
         },
         {
           "type": "cross-dissolve",
-          "at_seconds": 46.427,
+          "at_seconds": 46.278,
           "duration_seconds": 0.5
         },
         {
           "type": "cross-dissolve",
-          "at_seconds": 54.636,
+          "at_seconds": 54.586,
           "duration_seconds": 0.5
         }
       ],

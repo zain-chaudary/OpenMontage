@@ -136,16 +136,23 @@ def render(tl):
     XF = 0.5
     caps = captions(tl)
     print(f"  captions: {len(caps)} groups   frames: {nframes}")
+    # A scene owns the timeline from its own start until the NEXT scene starts.
+    # (Ending a segment at start+duration left 0.30-0.45s gaps that matched no
+    #  scene; the `next(...)` fallback then rendered the LAST scene, flashing the
+    #  closing shot 7 times for 2.35s total. Each gap is now held by the outgoing
+    #  scene, which is exactly the beat before the cross-fade.)
     sched = []
     for i in range(len(R.SCENES)):
-        start = offs[i]
-        end = offs[i] + durs[i] if i < len(R.SCENES) - 1 else total
-        sched.append((start, end))
+        end = offs[i + 1] if i < len(R.SCENES) - 1 else total
+        sched.append((offs[i], end))
     ctx = R.Ctx()
     out = ROOT / "renders"; out.mkdir(exist_ok=True)
 
     def frame(t):
-        idx = next((i for i, (a, b) in enumerate(sched) if a <= t < b), len(sched) - 1)
+        idx = 0
+        for i, (a, _b) in enumerate(sched):
+            if a <= t:
+                idx = i
         a, b = sched[idx]
         base = R.SCENES[idx](ctx, max(0.0, t - a))
         if idx + 1 < len(R.SCENES) and (b - t) < XF:

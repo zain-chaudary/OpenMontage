@@ -1,0 +1,257 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "script",
+  "status": "completed",
+  "timestamp": "2026-10-07T14:31:12.952896+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "script": {
+      "version": "1.0",
+      "title": "How AI Agents Actually Make a Video",
+      "total_duration_seconds": 62.04,
+      "voice_performance": {
+        "performance_intent": "Calm expert who has seen the sausage being made. Confident, never salesy; the numbers do the persuading.",
+        "pacing_profile": "conversational",
+        "energy_curve": "flat-professional plateau with a single lift into the review beat and a settled, lower landing.",
+        "pause_policy": "Short breath (0.25-0.4s) at each em-dash pivot; a 0.5s beat before 'That's not generation.'",
+        "sample_section_id": "s3",
+        "provider_notes": {
+          "delivery": "Moderate pace, minimal pitch movement, no rising terminal on declaratives.",
+          "emphasis": "Let numbers land: 'seventy percent', 'frame by frame'."
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "label": "Hook",
+          "text": "Type one sentence, get a finished video. That's how AI video gets sold.",
+          "start_seconds": 0.0,
+          "end_seconds": 4.828,
+          "speaker_directions": "Measured pace, confident, dry energy.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "confident, dry",
+            "emphasis_words": [
+              "one sentence",
+              "sold"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "Type one sentence, get a finished video. That's how AI video gets sold."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Prompt chip types itself in, then hard-cuts to a full-bleed editorial plate.",
+              "timestamp_seconds": 1.2
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s2",
+          "label": "Setup \u2014 the inversion",
+          "text": "But generation is the smallest part. The teams who do this well spend most of the work before a single frame exists.",
+          "start_seconds": 5.178,
+          "end_seconds": 12.625,
+          "speaker_directions": "Conversational pace, explanatory energy.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "explanatory",
+            "emphasis_words": [
+              "smallest",
+              "before"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "But generation is the smallest part. The teams who do this well spend most of the work before a single frame exists."
+          },
+          "enhancement_cues": [
+            {
+              "type": "stat_card",
+              "description": "70% pre-production / 30% generation split bar counts up.",
+              "timestamp_seconds": 8.178
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s3",
+          "label": "Stage 1 \u2014 Research",
+          "text": "First, research. Dozens of searches across forums, papers and news, so every number in the script traces back to a source.",
+          "start_seconds": 12.925,
+          "end_seconds": 21.435,
+          "speaker_directions": "Brisk pace, methodical energy.",
+          "delivery_cues": {
+            "pace": "brisk",
+            "energy": "methodical",
+            "emphasis_words": [
+              "research",
+              "source"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "First, research. Dozens of searches across forums, papers and news, so every number in the script traces back to a source."
+          },
+          "enhancement_cues": [
+            {
+              "type": "diagram",
+              "description": "Fan-out diagram draws from a research node to source cards; counter climbs to 8 cited sources.",
+              "timestamp_seconds": 15.425
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s4",
+          "label": "Stage 2 \u2014 Script and scene plan",
+          "text": "Then the script, words budgeted against seconds, and a scene plan for what you see at each moment.",
+          "start_seconds": 21.735,
+          "end_seconds": 27.515,
+          "speaker_directions": "Conversational pace, precise energy.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "precise",
+            "emphasis_words": [
+              "budgeted",
+              "each moment"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "Then the script, words budgeted against seconds, and a scene plan for what you see at each moment."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Screenplay page resolves into the word-budget bar, then eight storyboard blocks.",
+              "timestamp_seconds": 25.735
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s5",
+          "label": "Stage 3 \u2014 Assets",
+          "text": "Then the assets: narration, images, music. Each job routed to the best available tool, and every choice written down.",
+          "start_seconds": 27.814,
+          "end_seconds": 36.95,
+          "speaker_directions": "Conversational pace, steady energy.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "steady",
+            "emphasis_words": [
+              "routed",
+              "written down"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "Then the assets: narration, images, music. Each job routed to the best available tool, and every choice written down."
+          },
+          "enhancement_cues": [
+            {
+              "type": "diagram",
+              "description": "Three asset columns light up in sequence with tool chips and a decision-log rail.",
+              "timestamp_seconds": 31.314
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s6",
+          "label": "Stage 4 \u2014 Edit and render",
+          "text": "Then the cut, camera moves, captions, a mix. And only then the render, the part everyone assumes is the whole job.",
+          "start_seconds": 37.25,
+          "end_seconds": 46.427,
+          "speaker_directions": "Brisk pace, procedural energy.",
+          "delivery_cues": {
+            "pace": "brisk",
+            "energy": "procedural",
+            "emphasis_words": [
+              "only then",
+              "whole job"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "Then the cut, camera moves, captions, a mix. And only then the render, the part everyone assumes is the whole job."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Timeline scrubs, then the render progress bar lands on final.mp4.",
+              "timestamp_seconds": 42.25
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s7",
+          "label": "Climax \u2014 the gate",
+          "text": "The last step is invisible. The agent audits its own film, frame by frame, and refuses to ship it if it fails.",
+          "start_seconds": 46.778,
+          "end_seconds": 54.636,
+          "speaker_directions": "Measured pace, serious, low energy.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "serious, low",
+            "emphasis_words": [
+              "invisible",
+              "frame by frame",
+              "refuses"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "The last step is invisible. The agent audits its own film, frame by frame, and refuses to ship it if it fails."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Self-review checklist resolves to ticks under a PASS stamp, with a ghosted regenerate row.",
+              "timestamp_seconds": 50.778
+            }
+          ],
+          "pronunciation_guides": []
+        },
+        {
+          "id": "s8",
+          "label": "Landing",
+          "text": "That's not generation. That's production. OpenMontage, twelve pipelines, one agent.",
+          "start_seconds": 55.086,
+          "end_seconds": 62.0,
+          "speaker_directions": "Slow pace, settled energy.",
+          "delivery_cues": {
+            "pace": "slow",
+            "energy": "settled",
+            "emphasis_words": [
+              "production"
+            ],
+            "pause_after_seconds": 0.35,
+            "delivery_note": "Delivery cues applied per section; timeline locked to measured duration.",
+            "provider_text": "That's not generation. That's production. OpenMontage, twelve pipelines, one agent."
+          },
+          "enhancement_cues": [
+            {
+              "type": "overlay",
+              "description": "Wordmark and pipeline list fade up over the closing plate.",
+              "timestamp_seconds": 56.586
+            }
+          ],
+          "pronunciation_guides": []
+        }
+      ]
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "146 words against a 62s target; 8 sections with delivery and enhancement cues.",
+    "checklist": {
+      "word_count_within_10pct": true,
+      "cue_density_ok": true,
+      "narrative_arc": true,
+      "sourced_facts": true
+    }
+  }
+}

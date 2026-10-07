@@ -16,7 +16,7 @@ sourced, cut, rendered and self-reviewed by the agent, not hand-written FFmpeg.
 | Runtime | 62.000 s · 1860 frames @ 30 fps |
 | Picture | 1920×1080, H.264 high, yuv420p, `+faststart` |
 | Sound | AAC 192 kbps, 48 kHz stereo |
-| Size | 8.65 MB |
+| Size | 7.04 MB |
 | Captions | 22 word-timed groups (`composition/captions.json`) |
 | Self-review | `status: pass` — `recommended_action: present_to_user` |
 | Cost | $0.00 (zero-key path; no provider APIs used) |
@@ -55,6 +55,18 @@ Two decisions are explicitly disclosed in the decision log rather than hidden:
   render: 8/8 scenes show measurable motion.
 - **d-006 — music synthesised** from a chord progression with FFmpeg
   (`sine` + `tremolo` + `lowpass` + `aecho`) instead of a provider music bed.
+
+## Revisions
+
+- **v2 (2026-10-07)** — full-resolution QA caught four defects in v1 and all were fixed:
+  the frame scheduler's fallback flashed the closing shot in the 0.30–0.45 s gaps between
+  scenes (7 flashes, 2.35 s total) — scenes now hold through their gap and the cross-fade
+  ends exactly at the next section start; scene 5's asset-chip labels were baked with their
+  pre-animation colour (the layer-cache key omitted the state flag) and rendered invisible on
+  the dark cards; scene 3's stat label could be overlapped by the caption band; and the
+  progress rail showed per-scene instead of film-wide progress. Review frames are now sampled
+  at scene midpoints, which is what exposed the gap flashes. 8.65 MB → 7.04 MB.
+- **v1 (2026-10-07)** — first delivered render.
 
 ## Rebuild
 

@@ -30,6 +30,20 @@ HAIR   = (209, 213, 219)
 CARD   = (255, 255, 255)
 GOOD   = (21, 128, 61)
 
+# ---- film-level progress (the rail must reflect the whole 62s, not each scene) ----
+import json as _json
+try:
+    _TL = _json.loads((Path(__file__).resolve().parent / "timeline.json").read_text())
+    SECTION_START = _TL["section_start_times"]
+    TOTAL_S = _TL["total_seconds"]
+except Exception:                      # renderer still usable standalone
+    SECTION_START, TOTAL_S = [0.0] * 8, 62.0
+
+def rail(base, idx, t):
+    """Progress rail for scene `idx` at local time `t` -> global film fraction."""
+    base_start = SECTION_START[idx] if idx < len(SECTION_START) else 0.0
+    progress_rail(base, (base_start + t) / TOTAL_S)
+
 def font(weight, size):
     return ImageFont.truetype(str(FDIR / f"inter-{weight}.ttf"), size)
 
@@ -228,7 +242,7 @@ def scene2(c, t):
         s30 = c.layer(("s2s30", int(round(v30))), lambda: text_layer(f"{int(round(v30))}%", c.f(800, 44), MUTED))
         paste(base, s70, (120, ty + 74), ease((t - 1.4) / 0.5))
         paste(base, s30, (W - 120 - s30.width, ty + 74), ease((t - 1.4) / 0.5))
-    progress_rail(base, t / 62.0)
+    rail(base, 1, t)
     return base
 
 def scene3(c, t):
@@ -259,11 +273,11 @@ def scene3(c, t):
     ca = ease((t - 2.3) / 0.6)
     if ca > 0:
         v = count_up(0, 8, t - 2.3, 0.9)
-        sc = c.layer(("s3stat", int(round(v))), lambda: text_layer(f"{int(round(v))}", c.f(800, 110), ACCENT))
-        sl = c.layer("s3statl", lambda: text_layer("cited sources in the brief", c.f(500, 26), MUTED))
-        paste(base, sc, (120, 820), ca)
-        paste(base, sl, (120 + sc.width + 22, 882), ca)
-    progress_rail(base, t / 62.0)
+        sc = c.layer(("s3stat", int(round(v))), lambda: text_layer(f"{int(round(v))}", c.f(800, 96), ACCENT))
+        sl = c.layer("s3statl", lambda: text_layer("cited sources in the brief", c.f(500, 24), MUTED))
+        paste(base, sc, (120, 786), ca)
+        paste(base, sl, (120 + sc.width + 22, 816), ca)
+    rail(base, 2, t)
     return base
 
 def scene4(c, t):
@@ -292,7 +306,7 @@ def scene4(c, t):
                             fill=ACCENT if i in (0, 7) else (241, 245, 249), outline=HAIR, width=2)
     lab = c.layer("s4sb", lambda: text_layer("scene plan", c.f(500, 24), MUTED, tracking=2.4))
     paste(base, lab, (120, ty + 150), ease((t - 2.6) / 0.5))
-    progress_rail(base, t / 62.0)
+    rail(base, 3, t)
     return base
 
 def scene5(c, t):
@@ -310,11 +324,11 @@ def scene5(c, t):
         dark = ca > 0.85
         d.rounded_rectangle((x, y, x + cw, y + ch), radius=10, fill=(17, 24, 39, 255) if dark else (241, 245, 249),
                             outline=HAIR, width=2)
-        tl = c.layer(("s5t", title), lambda: text_layer(title, c.f(600, 22), (255, 255, 255) if dark else MUTED, tracking=2.8))
+        tl = c.layer(("s5t", title, dark), lambda: text_layer(title, c.f(600, 22), (255, 255, 255) if dark else MUTED, tracking=2.8))
         paste(base, tl, (x + 28, y + 24), ca)
         cxoff = x + 28
         for chp in chips:
-            cchip = c.layer(("s5c", chp), lambda: text_layer(chp, c.f(500, 24), (255, 255, 255) if dark else TEXT))
+            cchip = c.layer(("s5c", chp, dark), lambda: text_layer(chp, c.f(500, 24), (255, 255, 255) if dark else TEXT))
             cwid = cchip.width + 40
             if cxoff + cwid > x + cw - 28:
                 break
@@ -335,7 +349,7 @@ def scene5(c, t):
             d.line((rx + 26, ry + 68 + i * 34, rx + 26 + int(46 * ea), ry + 68 + i * 34), fill=HAIR, width=2)
             el = c.layer(("s5e", e), lambda: text_layer(e, c.f(500, 24), TEXT))
             paste(base, el, (rx + 46, ry + 54 + i * 34), ea)
-    progress_rail(base, t / 62.0)
+    rail(base, 4, t)
     return base
 
 def scene6(c, t):
@@ -367,7 +381,7 @@ def scene6(c, t):
         la = c.layer("s6l", lambda: text_layer("render", c.f(600, 22), MUTED, tracking=2.6))
         paste(base, la, (tx, py + 52), ease((t - 2.8) / 0.5))
         paste(base, fl, (tx + tw - fl.width, py + 48), ease((t - 3.1) / 0.6))
-    progress_rail(base, t / 62.0)
+    rail(base, 5, t)
     return base
 
 def scene7(c, t):
@@ -413,7 +427,7 @@ def scene7(c, t):
         if sa > 0:
             stamp = stamp.resize((int(stamp.width * sc), int(stamp.height * sc)), Image.LANCZOS)
             paste(base, stamp, (cx + cw - 300, cy + ch - 190), min(1.0, sa * 1.4))
-    progress_rail(base, t / 62.0)
+    rail(base, 6, t)
     return base
 
 def scene8(c, t):

@@ -1,0 +1,280 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-10-07T14:30:37.723531+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "How AI agents actually produce a video (vs. single-prompt generation)",
+      "research_date": "2026-10-07",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "AI Agent Video Production: The 2026 Creator Workflow",
+            "url": "https://sunra.ai/blog/ai-agent-video-production-workflows-2026",
+            "source": "blog",
+            "angle": "agent as coordination layer above specialist engines",
+            "what_it_covers": "Model routing, briefs instead of prompts, cost structure of agent workflows.",
+            "what_it_misses": "What the agent actually decides at each stage; no decision-level walkthrough."
+          },
+          {
+            "title": "7 AI Video Trends in 2026: From Generation to Agent Workflows",
+            "url": "https://genra.ai/blog/ai-video-trends-2026-generation-to-agent-workflows",
+            "source": "blog",
+            "angle": "trend taxonomy, generator vs agent",
+            "what_it_covers": "The categorical shift from clip generation to finished-video agents; consistency tooling.",
+            "what_it_misses": "Vendor-authored; stops at the claim and never shows the machine."
+          },
+          {
+            "title": "Common AI Video Creation Challenges and How to Solve Them Fast",
+            "url": "https://intellemo.ai/blog/common-ai-video-creation-challenges-and-solutions",
+            "source": "blog",
+            "angle": "failure analysis",
+            "what_it_covers": "Drift, weak prompts, missing review-before-render; structure as the fix.",
+            "what_it_misses": "No quantitative grounding and no end-to-end stage order."
+          }
+        ],
+        "saturated_angles": [
+          "listicles of AI video tools",
+          "'one prompt to viral video' demos",
+          "model-vs-model comparison videos",
+          "future-of-AI thinkpieces"
+        ],
+        "underserved_gaps": [
+          "A decision-level walkthrough of the real production stages, in order, ending at the quality gate.",
+          "Honest treatment of pre-production as the majority of the work.",
+          "Explaining why a review stage exists \u2014 what happens when a video fails its own checks."
+        ]
+      },
+      "trending": {
+        "recent_developments": [
+          {
+            "headline": "Agent-based 'brief in, finished video out' workflows replaced clip-by-clip generation as the default framing",
+            "date": "2026-06",
+            "url": "https://genra.ai/blog/ai-video-trends-2026-generation-to-agent-workflows",
+            "relevance": "The claim this video interrogates and then demonstrates stage by stage."
+          },
+          {
+            "headline": "Consistency moved from prompt luck to reference anchoring plus agent-level identity tracking",
+            "date": "2026-05",
+            "url": "https://genra.ai/blog/ai-video-trends-2026-generation-to-agent-workflows",
+            "relevance": "Supports the assets stage \u2014 consistency is engineered, not hoped for."
+          },
+          {
+            "headline": "Multi-model routing became standard: each stage goes to the engine that wins that stage",
+            "date": "2026-07",
+            "url": "https://invideo.io/faq/multi-agent-ai-filmmaking-vs-single-agent-prompting/",
+            "relevance": "Backs the routing visualised in the assets scene."
+          }
+        ]
+      },
+      "data_points": [
+        {
+          "claim": "63% of video marketers used AI to create or edit video, up from 51% a year earlier \u2014 the fastest-moving figure in the survey.",
+          "source_url": "https://adwave.com/resources/ai-video-statistics-2026",
+          "source_name": "Wyzowl, Video Marketing Statistics 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "adoption context"
+        },
+        {
+          "claim": "The most effective AI video workflows allocate roughly 70% of the time to pre-production planning and only 30% to generation.",
+          "source_url": "https://resource.digen.ai/mistakes-to-avoid-when-using-ai-video-tools-2026/",
+          "source_name": "MIT Technology Review (cited 2026)",
+          "credibility": "secondary_source",
+          "surprise_factor": "counterintuitive",
+          "usable_as": "central thesis of the hook"
+        },
+        {
+          "claim": "Around half of AI-generated outputs contain significant errors.",
+          "source_url": "https://resource.digen.ai/mistakes-to-avoid-when-using-ai-video-tools-2026/",
+          "source_name": "Forbes, 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "justification for the review gate"
+        },
+        {
+          "claim": "Only 9.5% of people can reliably tell AI video from real footage, yet 36% say it would lower their opinion of the brand.",
+          "source_url": "https://pexo.ai/blog/ai-video-statistics-7652",
+          "source_name": "Pexo AI statistics roundup, 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "stakes framing"
+        },
+        {
+          "claim": "41% of creators report spending more time fixing AI output than the automation saved them.",
+          "source_url": "https://resource.digen.ai/mistakes-to-avoid-when-using-ai-video-tools-2026/",
+          "source_name": "Adobe whitepaper, 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "cost-of-failure evidence"
+        },
+        {
+          "claim": "Businesses report spending an average of $12,700 per month fixing avoidable AI video errors.",
+          "source_url": "https://resource.digen.ai/mistakes-to-avoid-when-using-ai-video-tools-2026/",
+          "source_name": "Inc.com, 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "economic stake"
+        },
+        {
+          "claim": "Documented multi-agent productions ran $315\u2013$750 per finished minute with 2\u20135 day timelines.",
+          "source_url": "https://invideo.io/faq/multi-agent-ai-filmmaking-vs-single-agent-prompting/",
+          "source_name": "inVideo analysis, 2026",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "pipeline economics"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "How is an AI video agent different from a video generator?",
+          "If the models are good now, why does AI video still fall apart?",
+          "Where does quality come from \u2014 the model or the workflow?",
+          "Who is accountable when the output is wrong?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "The hard part is generation.",
+            "reality": "Roughly 70% of the work is pre-production; generation is the last stage, not the job.",
+            "source": "MIT Technology Review, cited 2026"
+          },
+          {
+            "myth": "A better model fixes bad output.",
+            "reality": "Most failures are structural \u2014 no plan, no reference, no review before render.",
+            "source": "Intellemo 2026"
+          },
+          {
+            "myth": "Nobody can tell anyway.",
+            "reality": "Only 9.5% can detect synthetic video, but 36% say it lowers their opinion of the brand.",
+            "source": "Pexo 2026"
+          }
+        ],
+        "knowledge_level": "intermediate \u2014 creators, marketers and technical generalists who have used an AI video tool at least once"
+      },
+      "expert_voices": [
+        {
+          "name": "Genra editorial team",
+          "title_or_affiliation": "Genra (AI video platform)",
+          "position": "The agent paradigm is replacing clip-by-clip generation; the competitive moat is now workflow intelligence and orchestration.",
+          "source_url": "https://genra.ai/blog/ai-video-trends-2026-generation-to-agent-workflows",
+          "contrarian": false
+        },
+        {
+          "name": "Intellemo editorial team",
+          "title_or_affiliation": "Intellemo",
+          "position": "Video with AI is a production, not one lucky prompt; every failure traces back to missing structure.",
+          "source_url": "https://intellemo.ai/blog/common-ai-video-creation-challenges-and-solutions",
+          "contrarian": false
+        }
+      ],
+      "angles_discovered": [
+        {
+          "name": "The 70/30 inversion",
+          "hook": "Generation is the smallest part of the job \u2014 and it is the only part anyone demos.",
+          "type": "contrarian",
+          "why_now": "Agentic tooling made pre-production automation visible in 2026.",
+          "grounded_in": [
+            "MIT Technology Review 70/30 planning-to-generation split"
+          ]
+        },
+        {
+          "name": "Follow one video through the machine",
+          "hook": "Every second on screen is a chain of logged decisions.",
+          "type": "narrative",
+          "why_now": "'Agent' is the 2026 buzzword and nobody shows what the agent decides.",
+          "grounded_in": [
+            "Stage decomposition across sunra.ai, genra.ai, mindstudio.ai"
+          ]
+        },
+        {
+          "name": "Detection is impossible, reputation is not",
+          "hook": "Almost nobody can spot synthetic video, and a third of viewers still punish brands for it.",
+          "type": "data_driven",
+          "why_now": "AI video crossed into the majority of marketing workflows this year.",
+          "grounded_in": [
+            "Pexo 2026 statistics roundup"
+          ]
+        }
+      ],
+      "visual_references": [
+        {
+          "description": "Editorial off-white layouts, thin hairline dividers, single cobalt accent, large margins, one focal object per frame.",
+          "url": "https://github.com/zain-chaudary/OpenMontage",
+          "what_works": "High trust and legibility; keeps text readable over photographic insets without heavy scrims."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://sunra.ai/blog/ai-agent-video-production-workflows-2026",
+          "title": "AI Agent Video Production: The 2026 Creator Workflow",
+          "used_for": "agent-as-coordination-layer framing",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://genra.ai/blog/ai-video-trends-2026-generation-to-agent-workflows",
+          "title": "7 AI Video Trends in 2026",
+          "used_for": "generator vs agent distinction",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://aicontentdrop.com/blog/ai-video-generation-statistics-2026",
+          "title": "AI Video Generation Statistics 2026",
+          "used_for": "63% adoption figure",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://adwave.com/resources/ai-video-statistics-2026",
+          "title": "AI Video Statistics 2026: Adoption, Cost & Quality",
+          "used_for": "63% vs 51% year-over-year jump",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://pexo.ai/blog/ai-video-statistics-7652",
+          "title": "30+ AI Video Statistics for 2026",
+          "used_for": "9.5% detection rate and 36% brand penalty",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://resource.digen.ai/mistakes-to-avoid-when-using-ai-video-tools-2026/",
+          "title": "Why AI Video Tools Fail",
+          "used_for": "70/30 split, ~50% error rate, $12,700/month, 41% fix-time",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://intellemo.ai/blog/common-ai-video-creation-challenges-and-solutions",
+          "title": "Common AI Video Creation Challenges",
+          "used_for": "structural failure analysis and review-before-render",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://invideo.io/faq/multi-agent-ai-filmmaking-vs-single-agent-prompting/",
+          "title": "Multi-Agent vs Single-Agent for Video",
+          "used_for": "cost and timeline reality of multi-agent crews",
+          "reliability": "secondary"
+        }
+      ],
+      "research_summary": "The evidence supports one thesis: the differentiator is not the generator, it is the pipeline around it. Credible coverage converges on routing, planning, consistency control and pre-render review as the load-bearing stages, and hard numbers (70/30 pre-production split, ~50% raw output error rate, 9.5% detection vs 36% brand penalty) give the script cited facts instead of adjectives.",
+      "metadata": {
+        "search_queries_run": 3,
+        "sources_consulted": 8
+      }
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "8 sources, 7 sourced data points, 3 differentiated angles, misconceptions sourced.",
+    "checklist": {
+      "landscape_min_3": true,
+      "data_points_sourced": true,
+      "angles_min_3": true,
+      "sources_min_5": true
+    }
+  }
+}

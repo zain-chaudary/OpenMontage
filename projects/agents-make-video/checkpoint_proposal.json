@@ -4,7 +4,7 @@
   "pipeline_type": "animated-explainer",
   "stage": "proposal",
   "status": "completed",
-  "timestamp": "2026-10-07T14:23:18.763464+00:00",
+  "timestamp": "2026-10-07T14:31:43.212061+00:00",
   "checkpoint_policy": "guided",
   "human_approval_required": true,
   "human_approved": true,
@@ -490,6 +490,37 @@
           "user_visible": true,
           "user_approved": true,
           "confidence": 0.75
+        },
+        {
+          "decision_id": "d-008",
+          "stage": "compose",
+          "category": "visual_accuracy_check",
+          "subject": "Post-render QA corrections (v2)",
+          "options_considered": [
+            {
+              "option_id": "ship-v1",
+              "label": "Ship the v1 render",
+              "score": 0.2,
+              "reason": "Self-review had passed, but full-resolution QA then found a 2.35s closing-shot flash in every inter-scene gap and invisible scene-5 chip labels; both are visible defects."
+            },
+            {
+              "option_id": "fix-and-rerender",
+              "label": "Fix and re-render",
+              "score": 0.95,
+              "reason": "Four defects had clear, low-risk fixes; a re-render restores the delivery promise."
+            },
+            {
+              "option_id": "patch-doc-only",
+              "label": "Document without re-rendering",
+              "score": 0.1,
+              "reason": "The defects are in the picture, not the paperwork."
+            }
+          ],
+          "selected": "fix and re-render",
+          "reason": "Frame scheduler now holds each scene through the 0.30-0.45s inter-scene gap and cross-fades into the next section start (the old fallback rendered the last scene, flashing the closing shot 7x for 2.35s); scene 5 layer-cache keys now include the card-state flag so chip labels are not baked in the pre-animation colour; scene 3's stat block clears the caption band; the progress rail reports film-wide progress. Review frames now sample scene midpoints - uniform eighths had landed inside a gap, which is why the v1 self-review missed the flashes.",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
         }
       ]
     }
