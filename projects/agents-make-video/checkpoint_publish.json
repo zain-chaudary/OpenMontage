@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "pipeline_type": "animated-explainer",
+  "stage": "publish",
+  "status": "awaiting_human",
+  "timestamp": "2026-10-07T14:34:19.436678+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "youtube",
+          "status": "exported",
+          "export_path": "/home/user/OpenMontage/projects/agents-make-video/exports",
+          "timestamp": "2026-10-07T14:34:18.994093+00:00",
+          "metadata_used": {
+            "title": "AI Agents Make a Video: Generation Is the Smallest Part",
+            "description": "Most people think AI video is one prompt and done. This 62-second explainer breaks down what\nan agent actually does to make a finished video \u2014 and why generation is only about 30% of it.\n\nPre-production (70%) is research, a script with words budgeted against seconds, a scene plan, and\nrouting every asset to the right tool with the choice written down. Then the cut, the captions,\nthe mix \u2014 and only then the render everyone assumes is the whole job. The last step is invisible:\nthe pipeline audits its own film frame by frame and refuses to ship it if it fails.\n\nThis film was produced end-to-end by OpenMontage's animated-explainer pipeline: research brief,\nproposal, script, scene plan, asset manifest, edit decisions, render report and a post-render\nself-review \u2014 all nine artifacts, schema-validated, for $0 in provider calls.\n\nChapters\n0:00 The pitch vs the reality\n0:13 Research and script: 146 words against 62 seconds\n0:28 Assets, edit, and the render\n0:47 The self-review gate\n\nSubscribe for more build-along explainers on agentic creative pipelines.\n\nOpenMontage: https://github.com/zain-chaudary/OpenMontage\n",
+            "hashtags": [
+              "#aiagents",
+              "#aivideo",
+              "#openmontage",
+              "#agenticai"
+            ],
+            "chapters": [
+              {
+                "start_seconds": 0.0,
+                "title": "The pitch vs the reality"
+              },
+              {
+                "start_seconds": 12.925,
+                "title": "Research and script: 146 words against 62 seconds"
+              },
+              {
+                "start_seconds": 27.815,
+                "title": "Assets, edit, and the render"
+              },
+              {
+                "start_seconds": 46.778,
+                "title": "The self-review gate"
+              }
+            ]
+          },
+          "visibility": "unlisted"
+        }
+      ],
+      "metadata": {
+        "thumbnail_concept": {
+          "concept": "Key-stat thumbnail: a giant cobalt 70% with the 70/30 pre-production bar from the film, on the playbook's off-white field.",
+          "text_overlay": "70% of a finished video isn't generation.",
+          "style_notes": "premium-minimalist playbook: off-white field, Inter 800 in cobalt for the stat, hairline rule, no photographic clutter so it stays readable at feed size.",
+          "file": "projects/agents-make-video/renders/thumbnail.jpg"
+        },
+        "render_report": "projects/agents-make-video/artifacts/render_report.json",
+        "final_review": "projects/agents-make-video/artifacts/final_review.json",
+        "packager": "tools/publishers/export_bundle.py (publish capability, local, offline)",
+        "render_runtime": "ffmpeg",
+        "cost_usd": 0.0
+      }
+    }
+  },
+  "style_playbook": "premium-minimalist",
+  "review": {
+    "summary": "Export bundle ready at /home/user/OpenMontage/projects/agents-make-video/exports: video, metadata, chapters, subtitles and a rendered thumbnail, packaged by the repo's own export_bundle tool. Nothing was uploaded \u2014 publishing is the one gate that stays with the user.",
+    "checklist": {
+      "seo_metadata_complete": true,
+      "title_within_60_chars": true,
+      "description_has_hook_chapters_cta": true,
+      "tags_5_to_10": true,
+      "hashtags_3_to_5": true,
+      "chapters_present": true,
+      "chapters_min_10s": true,
+      "thumbnail_rendered": true,
+      "subtitles_exported": true,
+      "export_dir_structured": true,
+      "publish_log_schema_valid": true,
+      "uploads_performed": false
+    },
+    "self_evaluation": {
+      "seo_quality": 4,
+      "description_completeness": 5,
+      "thumbnail_concept": 4,
+      "export_package": 5,
+      "platform_fit": 4
+    }
+  }
+}

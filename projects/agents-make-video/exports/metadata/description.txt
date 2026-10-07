@@ -1,0 +1,27 @@
+Most people think AI video is one prompt and done. This 62-second explainer breaks down what
+an agent actually does to make a finished video — and why generation is only about 30% of it.
+
+Pre-production (70%) is research, a script with words budgeted against seconds, a scene plan, and
+routing every asset to the right tool with the choice written down. Then the cut, the captions,
+the mix — and only then the render everyone assumes is the whole job. The last step is invisible:
+the pipeline audits its own film frame by frame and refuses to ship it if it fails.
+
+This film was produced end-to-end by OpenMontage's animated-explainer pipeline: research brief,
+proposal, script, scene plan, asset manifest, edit decisions, render report and a post-render
+self-review — all nine artifacts, schema-validated, for $0 in provider calls.
+
+Chapters
+0:00 The pitch vs the reality
+0:13 Research and script: 146 words against 62 seconds
+0:28 Assets, edit, and the render
+0:47 The self-review gate
+
+Subscribe for more build-along explainers on agentic creative pipelines.
+
+OpenMontage: https://github.com/zain-chaudary/OpenMontage
+
+
+0:00 - The pitch vs the reality
+0:13 - Research and script: 146 words against 62 seconds
+0:28 - Assets, edit, and the render
+0:47 - The self-review gate

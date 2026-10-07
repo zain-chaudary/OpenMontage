@@ -28,6 +28,30 @@ Stage gates are recorded as checkpoints in this directory
 
     research → proposal → script → scene_plan → assets → edit → compose
 
+Stage gates are recorded as checkpoints in this directory
+(`checkpoint_<stage>.json`, each with a review checklist):
+
+    research -> proposal -> script -> scene_plan -> assets -> edit -> compose -> publish
+
+The **publish** gate is `awaiting_human`: the export bundle is built and checked in, but nothing
+was uploaded anywhere — publishing is the one decision the pipeline leaves to you.
+
+## Export bundle (creator kit)
+
+`publish/make_publish.py` prepares the SEO metadata and thumbnail, exports subtitles, then hands
+the packaging to the repo's own `export_bundle` tool (`tools/publishers/export_bundle.py`):
+
+    exports/
+      metadata/   metadata.json · description.txt · chapters.txt · tags.txt
+      thumbnails/ thumbnail.jpg (1280x720) · concept.json
+      video/      output.mp4 · subtitles.srt
+
+`video/output.mp4` is byte-identical to `renders/final.mp4` and is not duplicated into git —
+re-run `python3 publish/make_publish.py` to lay the bundle down again.
+
+**Title** — AI Agents Make a Video: Generation Is the Smallest Part (56 chars)
+**Chapters** — 0:00 The pitch vs the reality · 0:13 Research and script · 0:28 Assets, edit and the render · 0:47 The self-review gate
+
 Artifacts (all validated against `schemas/artifacts/*.json`):
 
 - `artifacts/research_brief.json` — 8 sources, 7 sourced data points, 3 angles
@@ -39,6 +63,7 @@ Artifacts (all validated against `schemas/artifacts/*.json`):
 - `artifacts/decision_log.json` — d-001…d-007, append-only
 - `artifacts/render_report.json` — outputs, verification notes
 - `artifacts/final_review.json` — 5/5 check groups, PASS
+- `artifacts/publish_log.json` — export entry (status `exported`, no upload)
 
 ## How it was made (the honest version)
 
@@ -74,6 +99,7 @@ Two decisions are explicitly disclosed in the decision log rather than hidden:
     export PYTHONPATH=/home/user/pydeps
     python3 composition/make_video.py          # audio master → frames → encode → mux
     python3 composition/make_artifacts.py      # every artifact, stills, report, review, checkpoints
+    python3 publish/make_publish.py            # publish stage: metadata, thumbnail, srt, export bundle
 
 `composition/renderer.py` holds the eight scene functions; `composition/timeline.json`
 holds section start times and `composition/captions.json` the word-timed cues.
