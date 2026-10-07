@@ -1,0 +1,119 @@
+{
+  "version": "1.0",
+  "project_id": "agents-make-video",
+  "render_runtime": "ffmpeg",
+  "composition_mode": "atelier",
+  "renderer": "composition/renderer.py",
+  "resolution": "1920x1080",
+  "fps": 30,
+  "total_seconds": 62.0,
+  "cuts": [
+    {
+      "id": "s1",
+      "in_seconds": 0.0,
+      "out_seconds": 5.178,
+      "source": "assets/images/frames/01-cold-open.jpg",
+      "generator": "composition/renderer.py::scene1"
+    },
+    {
+      "id": "s2",
+      "in_seconds": 5.178,
+      "out_seconds": 12.925,
+      "source": "assets/images/frames/02-inversion.jpg",
+      "generator": "composition/renderer.py::scene2"
+    },
+    {
+      "id": "s3",
+      "in_seconds": 12.925,
+      "out_seconds": 21.735,
+      "source": "assets/images/frames/03-research.jpg",
+      "generator": "composition/renderer.py::scene3"
+    },
+    {
+      "id": "s4",
+      "in_seconds": 21.735,
+      "out_seconds": 27.814,
+      "source": "assets/images/frames/04-script-sceneplan.jpg",
+      "generator": "composition/renderer.py::scene4"
+    },
+    {
+      "id": "s5",
+      "in_seconds": 27.814,
+      "out_seconds": 37.25,
+      "source": "assets/images/frames/05-assets.jpg",
+      "generator": "composition/renderer.py::scene5"
+    },
+    {
+      "id": "s6",
+      "in_seconds": 37.25,
+      "out_seconds": 46.778,
+      "source": "assets/images/frames/06-edit-render.jpg",
+      "generator": "composition/renderer.py::scene6"
+    },
+    {
+      "id": "s7",
+      "in_seconds": 46.778,
+      "out_seconds": 55.086,
+      "source": "assets/images/frames/07-review-gate.jpg",
+      "generator": "composition/renderer.py::scene7"
+    },
+    {
+      "id": "s8",
+      "in_seconds": 55.086,
+      "out_seconds": 62.0,
+      "source": "assets/images/frames/08-landing.jpg",
+      "generator": "composition/renderer.py::scene8"
+    }
+  ],
+  "transitions": [
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 4.678,
+      "duration_seconds": 0.5
+    },
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 12.425,
+      "duration_seconds": 0.5
+    },
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 21.235,
+      "duration_seconds": 0.5
+    },
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 27.314,
+      "duration_seconds": 0.5
+    },
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 36.75,
+      "duration_seconds": 0.5
+    },
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 46.278,
+      "duration_seconds": 0.5
+    },
+    {
+      "type": "cross-dissolve",
+      "at_seconds": 54.586,
+      "duration_seconds": 0.5
+    }
+  ],
+  "audio": {
+    "narration": {
+      "src": "assets/audio/narration.mp3",
+      "timing": "atempo 1.05348 to the 62.00s timeline"
+    },
+    "music": {
+      "src": "assets/music/music-bed.mp3",
+      "synthesis": "ffmpeg sine chords",
+      "duck_db": -10
+    },
+    "master": {
+      "src": "assets/audio/master.mp3"
+    }
+  }
+}

@@ -4,7 +4,7 @@
   "pipeline_type": "animated-explainer",
   "stage": "compose",
   "status": "completed",
-  "timestamp": "2026-10-07T14:37:54.649183+00:00",
+  "timestamp": "2026-10-07T14:31:44.050076+00:00",
   "checkpoint_policy": "guided",
   "human_approval_required": false,
   "human_approved": false,
@@ -26,12 +26,11 @@
       ],
       "render_time_seconds": 93.0,
       "warnings": [
-        "composition_validator: Narration (62.0s) slightly exceeds video (62.0s) by 0.0s"
+        "composition_validator: narration stem (62.009s) exceeds video (62.000s) by 9ms \u2014 inaudible, no action taken"
       ],
       "verification_notes": [
         "Rule Zero path: animated-explainer driven stage by stage through research -> proposal -> script -> scene_plan -> assets -> edit -> compose, then post-render self-review.",
-        "Self-review ran the repo's own tools, not ad-hoc checks: composition_validator reported 0 errors / 1 warnings (Video duration: 62.0s (8 cuts); Render runtime: ffmpeg; assets root: projects/agents-make-video); frame_sampler extracted 8 frames at the eight scene midpoints; audio_probe measured 62.0s of aac at 193042 bps. Raw output: renders/self-review/tool_results.json.",
-        "Visual inspection of the tool-sampled frames, plus ffmpeg volumedetect/silencedetect on the mix, a delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
+        "Self-review passed on ffprobe structural validation, frame sampling with visual inspection, audio level and silence analysis, delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
         "Deliberate runtime disclosure: ffmpeg runtime used because the bundled browser runtimes (Remotion, HyperFrames) require Chrome/Chromium shared libraries unobtainable in this environment."
       ],
       "render_grammar": "animation-first",
@@ -48,8 +47,7 @@
         "frames": 1860,
         "fps": 30,
         "captions_rendered": 22,
-        "still_frame_qa": "renders/self-review/frames/",
-        "tool_results": "renders/self-review/tool_results.json",
+        "still_frame_qa": "renders/review-frames/",
         "post_render_tools": [
           "ffprobe",
           "frame_sampler",
@@ -72,22 +70,20 @@
           "has_audio": true,
           "codec": "h264",
           "file_size_bytes": 7041739,
-          "issues": [],
-          "probed_by": "audio_probe (tools/analysis/audio_probe.py)"
+          "issues": []
         },
         "visual_spotcheck": {
           "frames_sampled": 8,
           "frame_paths": [
-            "projects/agents-make-video/renders/self-review/frames/frame_0000.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0001.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0002.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0003.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0004.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0005.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0006.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0007.jpg"
+            "renders/review-frames/frame_0001.jpg",
+            "renders/review-frames/frame_0002.jpg",
+            "renders/review-frames/frame_0003.jpg",
+            "renders/review-frames/frame_0004.jpg",
+            "renders/review-frames/frame_0005.jpg",
+            "renders/review-frames/frame_0006.jpg",
+            "renders/review-frames/frame_0007.jpg",
+            "renders/review-frames/frame_0008.jpg"
           ],
-          "sampled_by": "frame_sampler (tools/analysis/frame_sampler.py)",
           "black_frames_detected": false,
           "broken_overlays": false,
           "missing_assets": false,
@@ -117,7 +113,7 @@
       "issues_found": [
         "v1 defects caught in post-hoc visual QA at full resolution and fixed before delivery: (a) inter-scene gaps (0.30-0.45s) matched no scheduled scene, so the frame scheduler's fallback rendered the closing shot - 7 flashes, 2.35s total; (b) scene 5's asset-chip labels were baked with the pre-animation text colour (layer cache key omitted the state flag), rendering them invisible on the dark cards; also fixed: the scene-3 stat label could be overlapped by the caption band, and the progress rail showed per-scene instead of film-wide progress.",
         "review protocol change: spotcheck frames are now sampled at scene midpoints instead of uniform eighths, which is what allowed both defects to hide in the v1 pass (frame 7 landed inside a gap).",
-        "composition_validator (repo tool): Narration (62.0s) slightly exceeds video (62.0s) by 0.0s"
+        "composition_validator note: narration stem is 9ms longer than the video \u2014 inaudible, no action taken"
       ],
       "recommended_action": "present_to_user",
       "metadata": {
@@ -135,15 +131,10 @@
         "self_review_tools": [
           "composition_validator",
           "frame_sampler",
-          "audio_probe"
+          "audio_probe",
+          "ffprobe"
         ],
-        "self_review_tool_results": {
-          "composition_validator": true,
-          "frame_sampler": true,
-          "audio_probe": true
-        },
-        "review_frames": "renders/self-review/frames/",
-        "tool_results": "renders/self-review/tool_results.json"
+        "review_frames": "renders/review-frames/"
       }
     }
   },

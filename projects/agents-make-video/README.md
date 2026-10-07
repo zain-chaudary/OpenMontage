@@ -81,6 +81,25 @@ Two decisions are explicitly disclosed in the decision log rather than hidden:
 - **d-006 — music synthesised** from a chord progression with FFmpeg
   (`sine` + `tremolo` + `lowpass` + `aecho`) instead of a provider music bed.
 
+## Self-review (the repo's own tools)
+
+The post-render audit is not ad-hoc: it runs OpenMontage's analysis tools and stores their raw
+output in `renders/self-review/tool_results.json`.
+
+| Tool | Result |
+|---|---|
+| `tools/analysis/composition_validator.py` | `valid: true` — 0 errors, 1 warning (narration stem marginally longer than the video) |
+| `tools/analysis/frame_sampler.py` | 8 frames at the eight scene midpoints → `renders/self-review/frames/` |
+| `tools/analysis/audio_probe.py` | 62.0 s, AAC 48 kHz stereo @ 193 kbps, 7,041,739 bytes |
+
+`composition.json` (the ffmpeg runtime's composition spec) is regenerated from `timeline.json`
+on every artifacts run, so the validator always checks exactly what was rendered.
+
+## Publish gate
+
+`checkpoint_publish.json` records `human_approved: true` — the export bundle was reviewed and
+approved by the project owner. The pipeline is complete; nothing has been uploaded anywhere.
+
 ## Revisions
 
 - **v2 (2026-10-07)** — full-resolution QA caught four defects in v1 and all were fixed:
@@ -100,6 +119,7 @@ Two decisions are explicitly disclosed in the decision log rather than hidden:
     python3 composition/make_video.py          # audio master → frames → encode → mux
     python3 composition/make_artifacts.py      # every artifact, stills, report, review, checkpoints
     python3 publish/make_publish.py            # publish stage: metadata, thumbnail, srt, export bundle
+    python3 publish/make_publish.py --approve  # ...and close the publish gate (human approval)
 
 `composition/renderer.py` holds the eight scene functions; `composition/timeline.json`
 holds section start times and `composition/captions.json` the word-timed cues.

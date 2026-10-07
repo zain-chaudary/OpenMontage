@@ -1,2 +1,20 @@
 {"ts": "2026-10-07T14:34:18.982065+00:00", "tool": "export_bundle", "event": "start"}
 {"ts": "2026-10-07T14:34:19.003019+00:00", "tool": "export_bundle", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 0.02}
+{"ts": "2026-10-07T14:36:04.813995+00:00", "tool": "frame_sampler", "event": "start"}
+{"ts": "2026-10-07T14:36:06.092364+00:00", "tool": "frame_sampler", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 1.28}
+{"ts": "2026-10-07T14:36:06.092695+00:00", "tool": "audio_probe", "event": "start"}
+{"ts": "2026-10-07T14:36:06.113411+00:00", "tool": "audio_probe", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 0.02}
+{"ts": "2026-10-07T14:37:14.253481+00:00", "tool": "frame_sampler", "event": "start"}
+{"ts": "2026-10-07T14:37:15.433721+00:00", "tool": "frame_sampler", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 1.18}
+{"ts": "2026-10-07T14:37:15.433970+00:00", "tool": "audio_probe", "event": "start"}
+{"ts": "2026-10-07T14:37:15.444169+00:00", "tool": "audio_probe", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 0.01}
+{"ts": "2026-10-07T14:37:25.929993+00:00", "tool": "frame_sampler", "event": "start"}
+{"ts": "2026-10-07T14:37:27.111716+00:00", "tool": "frame_sampler", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 1.18}
+{"ts": "2026-10-07T14:37:27.112214+00:00", "tool": "audio_probe", "event": "start"}
+{"ts": "2026-10-07T14:37:27.121813+00:00", "tool": "audio_probe", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 0.01}
+{"ts": "2026-10-07T14:37:38.738744+00:00", "tool": "export_bundle", "event": "start"}
+{"ts": "2026-10-07T14:37:38.759684+00:00", "tool": "export_bundle", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 0.02}
+{"ts": "2026-10-07T14:37:51.498229+00:00", "tool": "frame_sampler", "event": "start"}
+{"ts": "2026-10-07T14:37:52.718671+00:00", "tool": "frame_sampler", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 1.22}
+{"ts": "2026-10-07T14:37:52.719208+00:00", "tool": "audio_probe", "event": "start"}
+{"ts": "2026-10-07T14:37:52.729631+00:00", "tool": "audio_probe", "event": "finish", "success": true, "cost_usd": 0.0, "duration_s": 0.01}

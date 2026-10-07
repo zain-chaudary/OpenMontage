@@ -5,7 +5,7 @@
       "platform": "youtube",
       "status": "exported",
       "export_path": "projects/agents-make-video/exports",
-      "timestamp": "2026-10-07T14:34:18.994093+00:00",
+      "timestamp": "2026-10-07T14:37:38.753831+00:00",
       "metadata_used": {
         "title": "AI Agents Make a Video: Generation Is the Smallest Part",
         "description": "Most people think AI video is one prompt and done. This 62-second explainer breaks down what\nan agent actually does to make a finished video \u2014 and why generation is only about 30% of it.\n\nPre-production (70%) is research, a script with words budgeted against seconds, a scene plan, and\nrouting every asset to the right tool with the choice written down. Then the cut, the captions,\nthe mix \u2014 and only then the render everyone assumes is the whole job. The last step is invisible:\nthe pipeline audits its own film frame by frame and refuses to ship it if it fails.\n\nThis film was produced end-to-end by OpenMontage's animated-explainer pipeline: research brief,\nproposal, script, scene plan, asset manifest, edit decisions, render report and a post-render\nself-review \u2014 all nine artifacts, schema-validated, for $0 in provider calls.\n\nChapters\n0:00 The pitch vs the reality\n0:13 Research and script: 146 words against 62 seconds\n0:28 Assets, edit, and the render\n0:47 The self-review gate\n\nSubscribe for more build-along explainers on agentic creative pipelines.\n\nOpenMontage: https://github.com/zain-chaudary/OpenMontage\n",
@@ -48,6 +48,13 @@
     "final_review": "projects/agents-make-video/artifacts/final_review.json",
     "packager": "tools/publishers/export_bundle.py (publish capability, local, offline)",
     "render_runtime": "ffmpeg",
-    "cost_usd": 0.0
+    "cost_usd": 0.0,
+    "approval": {
+      "status": "approved",
+      "approved_by": "user",
+      "approved_at": "2026-10-07",
+      "note": "Approved in chat by the project owner ('Continue' after the gate summary was presented).",
+      "uploaded": false
+    }
   }
 }

@@ -15,11 +15,12 @@
   ],
   "render_time_seconds": 93.0,
   "warnings": [
-    "composition_validator: narration stem (62.009s) exceeds video (62.000s) by 9ms \u2014 inaudible, no action taken"
+    "composition_validator: Narration (62.0s) slightly exceeds video (62.0s) by 0.0s"
   ],
   "verification_notes": [
     "Rule Zero path: animated-explainer driven stage by stage through research -> proposal -> script -> scene_plan -> assets -> edit -> compose, then post-render self-review.",
-    "Self-review passed on ffprobe structural validation, frame sampling with visual inspection, audio level and silence analysis, delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
+    "Self-review ran the repo's own tools, not ad-hoc checks: composition_validator reported 0 errors / 1 warnings (Video duration: 62.0s (8 cuts); Render runtime: ffmpeg; assets root: projects/agents-make-video); frame_sampler extracted 8 frames at the eight scene midpoints; audio_probe measured 62.0s of aac at 193042 bps. Raw output: renders/self-review/tool_results.json.",
+    "Visual inspection of the tool-sampled frames, plus ffmpeg volumedetect/silencedetect on the mix, a delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
     "Deliberate runtime disclosure: ffmpeg runtime used because the bundled browser runtimes (Remotion, HyperFrames) require Chrome/Chromium shared libraries unobtainable in this environment."
   ],
   "render_grammar": "animation-first",
@@ -36,7 +37,8 @@
     "frames": 1860,
     "fps": 30,
     "captions_rendered": 22,
-    "still_frame_qa": "renders/review-frames/",
+    "still_frame_qa": "renders/self-review/frames/",
+    "tool_results": "renders/self-review/tool_results.json",
     "post_render_tools": [
       "ffprobe",
       "frame_sampler",

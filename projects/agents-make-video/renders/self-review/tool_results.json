@@ -1,0 +1,91 @@
+{
+  "composition_validator": {
+    "success": true,
+    "data": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Narration (62.0s) slightly exceeds video (62.0s) by 0.0s"
+      ],
+      "info": [
+        "Video duration: 62.0s (8 cuts)",
+        "Render runtime: ffmpeg; assets root: /home/user/OpenMontage/projects/agents-make-video",
+        "Narration duration: 62.0s",
+        "Music duration: 62.0s"
+      ],
+      "error_count": 0,
+      "warning_count": 1
+    }
+  },
+  "frame_sampler": {
+    "success": true,
+    "error": null,
+    "data": {
+      "strategy": "timestamps",
+      "frame_count": 8,
+      "frames": [
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0000.jpg",
+          "timestamp_seconds": 2.414,
+          "index": 0
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0001.jpg",
+          "timestamp_seconds": 8.901,
+          "index": 1
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0002.jpg",
+          "timestamp_seconds": 17.18,
+          "index": 2
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0003.jpg",
+          "timestamp_seconds": 24.625,
+          "index": 3
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0004.jpg",
+          "timestamp_seconds": 32.382,
+          "index": 4
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0005.jpg",
+          "timestamp_seconds": 41.839,
+          "index": 5
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0006.jpg",
+          "timestamp_seconds": 50.707,
+          "index": 6
+        },
+        {
+          "path": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0007.jpg",
+          "timestamp_seconds": 58.543,
+          "index": 7
+        }
+      ],
+      "output_dir": "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames"
+    }
+  },
+  "audio_probe": {
+    "success": true,
+    "error": null,
+    "data": {
+      "file": "/home/user/OpenMontage/projects/agents-make-video/renders/final.mp4",
+      "duration_seconds": 62.0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "size_bytes": 7041739,
+      "bit_rate": 908611,
+      "stream_count": 2,
+      "audio": {
+        "codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bit_rate": 193042
+      }
+    }
+  }
+}

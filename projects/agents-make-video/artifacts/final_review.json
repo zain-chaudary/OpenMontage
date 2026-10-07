@@ -11,20 +11,22 @@
       "has_audio": true,
       "codec": "h264",
       "file_size_bytes": 7041739,
-      "issues": []
+      "issues": [],
+      "probed_by": "audio_probe (tools/analysis/audio_probe.py)"
     },
     "visual_spotcheck": {
       "frames_sampled": 8,
       "frame_paths": [
-        "renders/review-frames/frame_0001.jpg",
-        "renders/review-frames/frame_0002.jpg",
-        "renders/review-frames/frame_0003.jpg",
-        "renders/review-frames/frame_0004.jpg",
-        "renders/review-frames/frame_0005.jpg",
-        "renders/review-frames/frame_0006.jpg",
-        "renders/review-frames/frame_0007.jpg",
-        "renders/review-frames/frame_0008.jpg"
+        "projects/agents-make-video/renders/self-review/frames/frame_0000.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0001.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0002.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0003.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0004.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0005.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0006.jpg",
+        "projects/agents-make-video/renders/self-review/frames/frame_0007.jpg"
       ],
+      "sampled_by": "frame_sampler (tools/analysis/frame_sampler.py)",
       "black_frames_detected": false,
       "broken_overlays": false,
       "missing_assets": false,
@@ -54,7 +56,7 @@
   "issues_found": [
     "v1 defects caught in post-hoc visual QA at full resolution and fixed before delivery: (a) inter-scene gaps (0.30-0.45s) matched no scheduled scene, so the frame scheduler's fallback rendered the closing shot - 7 flashes, 2.35s total; (b) scene 5's asset-chip labels were baked with the pre-animation text colour (layer cache key omitted the state flag), rendering them invisible on the dark cards; also fixed: the scene-3 stat label could be overlapped by the caption band, and the progress rail showed per-scene instead of film-wide progress.",
     "review protocol change: spotcheck frames are now sampled at scene midpoints instead of uniform eighths, which is what allowed both defects to hide in the v1 pass (frame 7 landed inside a gap).",
-    "composition_validator note: narration stem is 9ms longer than the video \u2014 inaudible, no action taken"
+    "composition_validator (repo tool): Narration (62.0s) slightly exceeds video (62.0s) by 0.0s"
   ],
   "recommended_action": "present_to_user",
   "metadata": {
@@ -72,9 +74,14 @@
     "self_review_tools": [
       "composition_validator",
       "frame_sampler",
-      "audio_probe",
-      "ffprobe"
+      "audio_probe"
     ],
-    "review_frames": "renders/review-frames/"
+    "self_review_tool_results": {
+      "composition_validator": true,
+      "frame_sampler": true,
+      "audio_probe": true
+    },
+    "review_frames": "renders/self-review/frames/",
+    "tool_results": "renders/self-review/tool_results.json"
   }
 }

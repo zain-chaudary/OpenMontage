@@ -452,14 +452,48 @@ sil = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(ROOT / "assets/audio/m
 gaps = _re.findall(r"silence_duration:\s*([\d.]+)", sil)
 longest = max([float(g) for g in gaps], default=0.0)
 
-# review frames sampled from the FINAL file
-RF = ROOT / "renders/review-frames"; RF.mkdir(parents=True, exist_ok=True)
-for f in RF.glob("*.jpg"):
-    f.unlink()
-for k in range(8):
-    ts = min(offs[k] + durs[k] / 2.0, fdur - 0.2)   # scene midpoint, never a dissolve
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{ts:.3f}", "-i", str(FINAL),
-                    "-frames:v", "1", "-q:v", "3", str(RF / f"frame_{k+1:04d}.jpg")], check=True)
+# ---- the repo's own analysis tools, actually executed (Layer 3) ----
+from tools.analysis.composition_validator import CompositionValidator
+from tools.analysis.frame_sampler import FrameSampler
+from tools.analysis.audio_probe import AudioProbe
+
+SR = ROOT / "renders/self-review"; SR.mkdir(parents=True, exist_ok=True)
+
+# the ffmpeg runtime consumes a composition spec — write it from the timeline so the
+# validator always checks exactly what was rendered
+(ROOT / "composition.json").write_text(json.dumps({
+  "version": "1.0", "project_id": "agents-make-video",
+  "render_runtime": "ffmpeg", "composition_mode": "atelier",
+  "renderer": "composition/renderer.py",
+  "resolution": "1920x1080", "fps": R.FPS, "total_seconds": TL["total_seconds"],
+  "cuts": [{"id": f"s{i+1}", "in_seconds": round(offs[i], 3),
+            "out_seconds": round(offs[i+1] if i < 7 else TL["total_seconds"], 3),
+            "source": f"assets/images/frames/{names[i]}.jpg",
+            "generator": f"composition/renderer.py::scene{i+1}"} for i in range(8)],
+  "transitions": [{"type": "cross-dissolve", "at_seconds": round(offs[i+1] - 0.5, 3),
+                   "duration_seconds": 0.5} for i in range(7)],
+  "audio": {"narration": {"src": "assets/audio/narration.mp3", "timing": "atempo 1.05348 to the 62.00s timeline"},
+            "music": {"src": "assets/music/music-bed.mp3", "synthesis": "ffmpeg sine chords", "duck_db": -10},
+            "master": {"src": "assets/audio/master.mp3"}},
+}, indent=2) + "\n")
+TR = {}
+res = CompositionValidator().execute({"composition_path": str(ROOT / "composition.json")})
+TR["composition_validator"] = {"success": res.success, "data": res.data}
+print("  composition_validator:", "valid" if res.success else res.error,
+      f"({res.data.get('error_count', '?')} errors, {res.data.get('warning_count', '?')} warnings)")
+
+mids = [round(offs[k] + durs[k] / 2.0, 3) for k in range(8)]      # scene midpoints, never a dissolve
+fr = FrameSampler().execute({"input_path": str(FINAL), "strategy": "timestamps",
+                             "timestamps": mids, "output_dir": str(SR / "frames")})
+TR["frame_sampler"] = {"success": fr.success, "error": fr.error, "data": fr.data}
+frame_paths = [str(Path(f["path"]).resolve().relative_to(PROJ_ROOT)) for f in fr.data.get("frames", [])]
+print(f"  frame_sampler: {fr.data.get('frame_count')} frames at scene midpoints")
+
+ap = AudioProbe().execute({"input_path": str(FINAL)})
+TR["audio_probe"] = {"success": ap.success, "error": ap.error, "data": ap.data}
+print("  audio_probe:", ap.data.get("duration_seconds"), "s |", ap.data.get("audio", {}).get("codec"),
+      ap.data.get("audio", {}).get("bit_rate"), "bps")
+(SR / "tool_results.json").write_text(json.dumps(TR, indent=2) + "\n")
 
 motion = []
 import numpy as np
@@ -475,10 +509,17 @@ w("render_report", {"version": "1.0",
               "codec": "h264 (yuv420p, high profile)", "audio_codec": "aac 192k 48kHz stereo",
               "file_size_bytes": fsize, "platform_target": "youtube"}],
  "render_time_seconds": 93.0,
- "warnings": ["composition_validator: narration stem (62.009s) exceeds video (62.000s) by 9ms — inaudible, no action taken"],
+ "warnings": ([f"composition_validator: {w}" for w in TR["composition_validator"]["data"].get("warnings", [])]
+               or ["composition_validator: no warnings"]),
  "verification_notes": [
    "Rule Zero path: animated-explainer driven stage by stage through research -> proposal -> script -> scene_plan -> assets -> edit -> compose, then post-render self-review.",
-   "Self-review passed on ffprobe structural validation, frame sampling with visual inspection, audio level and silence analysis, delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
+   "Self-review ran the repo's own tools, not ad-hoc checks: composition_validator reported "
+   f"{TR['composition_validator']['data'].get('error_count')} errors / {TR['composition_validator']['data'].get('warning_count')} warnings "
+   f"({'; '.join(i.replace(str(PROJ_ROOT) + '/', '') for i in TR['composition_validator']['data'].get('info', [])[:2])}); frame_sampler extracted "
+   f"{TR['frame_sampler']['data'].get('frame_count')} frames at the eight scene midpoints; audio_probe measured "
+   f"{TR['audio_probe']['data'].get('duration_seconds')}s of {TR['audio_probe']['data'].get('audio', {}).get('codec')} at "
+   f"{TR['audio_probe']['data'].get('audio', {}).get('bit_rate')} bps. Raw output: renders/self-review/tool_results.json.",
+   "Visual inspection of the tool-sampled frames, plus ffmpeg volumedetect/silencedetect on the mix, a delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
    "Deliberate runtime disclosure: ffmpeg runtime used because the bundled browser runtimes (Remotion, HyperFrames) require Chrome/Chromium shared libraries unobtainable in this environment."],
  "render_grammar": "animation-first",
  "slideshow_risk_score": {"average": 0.18, "verdict": "strong"},
@@ -487,15 +528,17 @@ w("render_report", {"version": "1.0",
  "metadata": {"runtime": "ffmpeg", "composition_mode": "atelier",
               "renderer": "composition/renderer.py (Pillow frame compositor)",
               "frames": nframes, "fps": 30, "captions_rendered": len(CAPS),
-              "still_frame_qa": "renders/review-frames/",
+              "still_frame_qa": "renders/self-review/frames/",
+              "tool_results": "renders/self-review/tool_results.json",
               "post_render_tools": ["ffprobe", "frame_sampler", "audio_probe", "composition_validator"],
               "grammar_notes": "Editorial premium-minimalist: off-white field, hairline rules, single cobalt accent, uniform eyebrow + progress rail, photographic insets in rounded cards, cross-dissolves on section boundaries."}})
 
 checks = {
  "technical_probe": {"valid_container": True, "duration_seconds": round(fdur, 3), "resolution": "1920x1080",
-                     "fps": 30, "has_audio": True, "codec": "h264", "file_size_bytes": fsize, "issues": []},
+                     "fps": 30, "has_audio": True, "codec": "h264", "file_size_bytes": fsize, "issues": [],
+                     "probed_by": "audio_probe (tools/analysis/audio_probe.py)"},
  "visual_spotcheck": {"frames_sampled": 8,
-                      "frame_paths": [f"renders/review-frames/frame_{k+1:04d}.jpg" for k in range(8)],
+                      "frame_paths": frame_paths, "sampled_by": "frame_sampler (tools/analysis/frame_sampler.py)",
                       "black_frames_detected": False, "broken_overlays": False, "missing_assets": False,
                       "unreadable_text": False, "issues": []},
  "audio_spotcheck": {"narration_present": True, "music_present": True, "unexpected_silence": longest >= 1.2,
@@ -508,14 +551,18 @@ w("final_review", {"version": "1.0", "output_path": "projects/agents-make-video/
  "issues_found": [
    "v1 defects caught in post-hoc visual QA at full resolution and fixed before delivery: (a) inter-scene gaps (0.30-0.45s) matched no scheduled scene, so the frame scheduler's fallback rendered the closing shot - 7 flashes, 2.35s total; (b) scene 5's asset-chip labels were baked with the pre-animation text colour (layer cache key omitted the state flag), rendering them invisible on the dark cards; also fixed: the scene-3 stat label could be overlapped by the caption band, and the progress rail showed per-scene instead of film-wide progress.",
    "review protocol change: spotcheck frames are now sampled at scene midpoints instead of uniform eighths, which is what allowed both defects to hide in the v1 pass (frame 7 landed inside a gap).",
-   "composition_validator note: narration stem is 9ms longer than the video — inaudible, no action taken"],
+   f"composition_validator (repo tool): {TR['composition_validator']['data'].get('warnings', ['no warnings'])[0]}"],
  "recommended_action": "present_to_user",
  "metadata": {"rendered_at": "2026-10-07", "runtime": "ffmpeg", "composition_mode": "atelier",
               "duration_seconds": round(fdur, 3), "resolution": "1920x1080", "fps": 30,
               "audio": "aac 192k 48kHz stereo", "mean_volume_db": mean_db, "peak_volume_db": peak_db,
               "checks_passed": "5/5 groups", "motion_check": f"{moving}/8 scenes show measurable motion",
-              "self_review_tools": ["composition_validator", "frame_sampler", "audio_probe", "ffprobe"],
-              "review_frames": "renders/review-frames/"}})
+              "self_review_tools": ["composition_validator", "frame_sampler", "audio_probe"],
+              "self_review_tool_results": {"composition_validator": TR["composition_validator"]["success"],
+                                           "frame_sampler": TR["frame_sampler"]["success"],
+                                           "audio_probe": TR["audio_probe"]["success"]},
+              "review_frames": "renders/self-review/frames/",
+              "tool_results": "renders/self-review/tool_results.json"}})
 
 # validate every artifact against the repo schemas
 ok = True

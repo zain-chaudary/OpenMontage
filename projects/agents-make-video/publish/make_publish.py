@@ -10,6 +10,7 @@ out the export directory and returns a schema-valid `publish_log`.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -25,6 +26,11 @@ import renderer as R                          # noqa: E402
 from tools.publishers.export_bundle import ExportBundle   # noqa: E402
 from lib.checkpoint import write_checkpoint               # noqa: E402
 from lib.paths import PROJECTS_DIR                        # noqa: E402
+
+ap = argparse.ArgumentParser(description="Publish stage for agents-make-video")
+ap.add_argument("--approve", action="store_true",
+                help="advance the publish gate: record the human approval and close the stage")
+args = ap.parse_args()
 
 ART = ROOT / "artifacts"
 TL = json.loads((ROOT / "composition/timeline.json").read_text())
@@ -178,6 +184,16 @@ plog["metadata"].update({
 
 for _e in plog["entries"]:                      # repo-relative so the log is portable
     _e["export_path"] = str(Path(export_path).resolve().relative_to(PROJ_ROOT))
+APPROVED = args.approve
+if APPROVED:
+    plog["metadata"]["approval"] = {
+        "status": "approved",
+        "approved_by": "user",
+        "approved_at": "2026-10-07",
+        "note": "Approved in chat by the project owner ('Continue' after the gate summary was presented).",
+        "uploaded": False,
+    }
+
 (ART / "publish_log.json").write_text(json.dumps(plog, indent=2) + "\n")
 import jsonschema  # noqa: E402
 jsonschema.validate(plog, json.loads((PROJ_ROOT / "schemas/artifacts/publish_log.schema.json").read_text()))
@@ -186,10 +202,14 @@ print("  publish_log.json written + schema-valid")
 # ---------------------------------------------------------------- 5. checkpoint (publish gate)
 K = dict(pipeline_type="animated-explainer", style_playbook="premium-minimalist")
 write_checkpoint(
-    PROJECTS_DIR, "agents-make-video", "publish", "awaiting_human",
+    PROJECTS_DIR, "agents-make-video", "publish", "completed" if APPROVED else "awaiting_human",
     {"publish_log": plog},
     human_approval_required=True,
+    human_approved=APPROVED,
     review={
+        "approval_note": ("Human gate approved by the project owner; the export bundle is final and the "
+                          "pipeline is complete. Nothing was uploaded — the bundle is for the owner to publish.")
+        if APPROVED else "Awaiting human approval of the publish stage.",
         "summary": f"Export bundle ready at {export_path}: video, metadata, chapters, subtitles and a rendered "
                    f"thumbnail, packaged by the repo's own export_bundle tool. Nothing was uploaded — publishing "
                    f"is the one gate that stays with the user.",
@@ -214,5 +234,5 @@ write_checkpoint(
     },
     **K,
 )
-print("  checkpoint: publish (awaiting_human)")
+print(f"  checkpoint: publish ({'completed — approved' if APPROVED else 'awaiting_human'})")
 print(f"\n  export dir: {export_path}")

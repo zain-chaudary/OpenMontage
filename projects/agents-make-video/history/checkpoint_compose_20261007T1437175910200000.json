@@ -4,7 +4,7 @@
   "pipeline_type": "animated-explainer",
   "stage": "compose",
   "status": "completed",
-  "timestamp": "2026-10-07T14:37:54.649183+00:00",
+  "timestamp": "2026-10-07T14:37:17.591020+00:00",
   "checkpoint_policy": "guided",
   "human_approval_required": false,
   "human_approved": false,
@@ -30,7 +30,7 @@
       ],
       "verification_notes": [
         "Rule Zero path: animated-explainer driven stage by stage through research -> proposal -> script -> scene_plan -> assets -> edit -> compose, then post-render self-review.",
-        "Self-review ran the repo's own tools, not ad-hoc checks: composition_validator reported 0 errors / 1 warnings (Video duration: 62.0s (8 cuts); Render runtime: ffmpeg; assets root: projects/agents-make-video); frame_sampler extracted 8 frames at the eight scene midpoints; audio_probe measured 62.0s of aac at 193042 bps. Raw output: renders/self-review/tool_results.json.",
+        "Self-review ran the repo's own tools, not ad-hoc checks: composition_validator reported 0 errors / 1 warnings (Video duration: 62.0s (8 cuts); Render runtime: ffmpeg; assets root: /home/user/OpenMontage/projects/agents-make-video); frame_sampler extracted 8 frames at the eight scene midpoints; audio_probe measured 62.0s of aac at 193042 bps. Raw output: renders/self-review/tool_results.json.",
         "Visual inspection of the tool-sampled frames, plus ffmpeg volumedetect/silencedetect on the mix, a delivery-promise motion check, subtitle coverage, runtime governance and manifest asset integrity.",
         "Deliberate runtime disclosure: ffmpeg runtime used because the bundled browser runtimes (Remotion, HyperFrames) require Chrome/Chromium shared libraries unobtainable in this environment."
       ],
@@ -78,14 +78,14 @@
         "visual_spotcheck": {
           "frames_sampled": 8,
           "frame_paths": [
-            "projects/agents-make-video/renders/self-review/frames/frame_0000.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0001.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0002.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0003.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0004.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0005.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0006.jpg",
-            "projects/agents-make-video/renders/self-review/frames/frame_0007.jpg"
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0000.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0001.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0002.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0003.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0004.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0005.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0006.jpg",
+            "/home/user/OpenMontage/projects/agents-make-video/renders/self-review/frames/frame_0007.jpg"
           ],
           "sampled_by": "frame_sampler (tools/analysis/frame_sampler.py)",
           "black_frames_detected": false,
